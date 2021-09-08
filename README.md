@@ -1,10 +1,17 @@
 ## usar o projeto
-git clone https://github.com/luiscjs/geracaoatec.git
-
-cp .env.example .env
-
-mudar database 
-
-php artisan key:generate
-
-php artisan serve
+* Clonar projeto
+    ```sh
+    git clone https://github.com/luiscjs/geracaoatec.git
+    ```
+* copiar ficheiro .env.example para .env
+    ```sh
+    cp .env.example .env
+    ```
+* gerar nova key
+    ```sh
+    php artisan key:generate
+    ```
+* correr o serviço
+    ```sh
+    php artisan serve
+    ```
