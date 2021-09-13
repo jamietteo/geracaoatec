@@ -7,7 +7,7 @@
     ```sh
     git clone https://github.com/luiscjs/geracaoatec.git
     ```
-    * Instalar o composer
+* Instalar o composer
     ```sh
     composer install
     ```
