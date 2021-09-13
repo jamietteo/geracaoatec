@@ -31,7 +31,7 @@
     ```sh
     php artisan migrate:fresh --seed
     ```
-* Correr o serviço
+* Correr o projeto
     ```sh
     php artisan serve
     ```    
