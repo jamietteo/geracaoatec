@@ -15,7 +15,7 @@
     ```sh
     composer install
     ```
-* Instalar as dependencias
+* Instalar as dependencias para a pasta node_modules
     ```sh
     npm i && npm run dev
     ```
