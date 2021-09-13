@@ -7,6 +7,10 @@
     ```sh
     git clone https://github.com/luiscjs/geracaoatec.git
     ```
+* Ir para a pasta do projeto
+    ```sh
+    cd geracaoatec
+    ```
 * Instalar o composer
     ```sh
     composer install
