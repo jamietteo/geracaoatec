@@ -23,10 +23,15 @@
     ```sh
     php artisan key:generate
     ```
+* Migrar para os dados para a base de dados
+    ```sh
+    php artisan migrate:fresh --seed
+    ```
 * Correr o serviço
     ```sh
     php artisan serve
-    ```
+    ```    
+
  
 ## 🤝 Contact us
 
