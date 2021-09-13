@@ -15,11 +15,15 @@
     ```sh
     composer install
     ```
+* Instalar as dependencias
+    ```sh
+    npm i && npm run dev
+    ```
 * Copiar ficheiro .env.example para .env
     ```sh
     cp .env.example .env
     ```
-* Gerar nova key
+* Gerar nova key para o .env
     ```sh
     php artisan key:generate
     ```
