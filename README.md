@@ -7,6 +7,10 @@
     ```sh
     git clone https://github.com/luiscjs/geracaoatec.git
     ```
+    * Instalar o composer
+    ```sh
+    composer install
+    ```
 * Copiar ficheiro .env.example para .env
     ```sh
     cp .env.example .env
