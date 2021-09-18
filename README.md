@@ -57,7 +57,7 @@
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/luis-goncalves-fc/">
-        <img src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/3a/3a9122dd5343c112013e382fe8a6294fa81e0896_full.jpg" width="100px;" alt="Foto do Luis"/><br>
+        <img src="https://i1.sndcdn.com/artworks-46nacSyxPbxPThgJ-zx2pUQ-t500x500.jpg" width="100px;" alt="Foto do Luis"/><br>
         <sub>
           <b>Luis Gonçalves</b>
         </sub>
