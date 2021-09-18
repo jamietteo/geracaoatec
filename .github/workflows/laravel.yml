@@ -37,3 +37,7 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+      
+    - name: Migrate Table
+      run: php artisan migrate:fresh --seed
+
