@@ -37,6 +37,10 @@
     ```
     
 ## Pull do Projeto
+* Ir para a pasta do projeto
+    ```sh
+    cd geracaoatec
+    ```
 * Dar pull ao projeto
     ```sh
     git pull https://github.com/reacc/geracaoatec.git
