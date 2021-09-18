@@ -18,11 +18,22 @@ jobs:
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      
     - name: Update Dependencies
       run: composer update --ignore-platform-reqs
+      
     - name: Install Dependencies
       run: composer install --ignore-platform-reqs
+      
     - name: Generate key
       run: php artisan key:generate
-    - name: Migrate Tables
-      run: php artisan migrate:fresh --seed
+      
+    - name: Create Database
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+      run: vendor/bin/phpunit
