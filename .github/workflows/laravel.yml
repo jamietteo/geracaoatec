@@ -18,9 +18,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    - name: Update Depedencies
+    - name: Update Dependencies
       run: composer update
-    - name: Install Depedencies
+    - name: Install Dependencies
       run: composer install --ignore-platform-reqs
     - name: Generate key
       run: php artisan key:generate
