@@ -2,10 +2,10 @@
     <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" /> <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /> <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" /> <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/> <img src="http://img.shields.io/badge/-PHPStorm-181717?style=for-the-badge&logo=phpstorm&logoColor=white"/> <img src="https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6"/> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white"/>
 </div>
 
-## 🚀 Instalar o Projeto
+## 🚀 Clonar o Projeto
 * Clonar projeto
     ```sh
-    git clone https://github.com/luiscjs/geracaoatec.git
+    git clone https://github.com/reacc/geracaoatec.git
     ```
 * Ir para a pasta do projeto
     ```sh
@@ -34,7 +34,17 @@
 * Correr o projeto
     ```sh
     php artisan serve
-    ```    
+    ```
+    
+## Pull do Projeto
+* Dar pull ao projeto
+    ```sh
+    git pull https://github.com/reacc/geracaoatec.git
+    ```
+* Migrar para os dados para a base de dados (caso seja alterado algo na BD)
+    ```sh
+    php artisan migrate:fresh --seed
+    ```
 
  
 ## 🤝 Contact us
