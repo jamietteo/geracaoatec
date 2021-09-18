@@ -24,3 +24,5 @@ jobs:
       run: composer install --ignore-platform-reqs
     - name: Generate key
       run: php artisan key:generate
+    - name: Migrate Tables
+      run: php artisan migrate:fresh --seed
