@@ -36,7 +36,7 @@
     php artisan serve
     ```
     
-## Pull do Projeto
+## 🤖 Pull do Projeto
 * Ir para a pasta do projeto
     ```sh
     cd geracaoatec
