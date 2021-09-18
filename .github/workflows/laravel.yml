@@ -27,20 +27,11 @@ jobs:
       
     - name: Generate key
       run: php artisan key:generate
-      
-    - name: Create Database
+
+    - name: Set up MySQL
       run: |
-        services:
-          mysql:
-            image: mysql:5.7
-            env:
-              MYSQL_DATABASE: test_db
-              MYSQL_USER: user
-              MYSQL_PASSWORD: password
-              MYSQL_ROOT_PASSWORD: rootpassword
-            ports:
-              - 33306:3306
-            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        sudo /etc/init.d/mysql start
+        mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
       
     - name: Migrate Table
       run: php artisan migrate:fresh --seed
