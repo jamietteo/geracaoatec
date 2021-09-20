@@ -16,7 +16,7 @@ class CreateUserFormsTable extends Migration
         Schema::create('user_forms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->foreignId('technician_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->date('date');
             $table->string('periodicity');
             $table->timestamps();
