@@ -14,7 +14,9 @@ class InstitutionController extends Controller
      */
     public function index()
     {
-        //
+        $institutions = Institution::orderBy('id', 'desc')->simplePaginate(10);
+
+        return view('pages.institutions.index', ['institutions' => $institutions]);
     }
 
     /**
@@ -24,7 +26,7 @@ class InstitutionController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.institutions.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class InstitutionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'zone' => 'required'
+        ]);
+
+        $institution = new Institution();
+        $institution->zone = $request->zone;
+        $institution->save();
+
+        return redirect('institutions')->with('status', 'Instituição criada com sucesso!');
     }
 
     /**
@@ -46,7 +56,7 @@ class InstitutionController extends Controller
      */
     public function show(Institution $institution)
     {
-        //
+        return view('pages.institution.show', ['institution' => $institution]);
     }
 
     /**
@@ -57,7 +67,7 @@ class InstitutionController extends Controller
      */
     public function edit(Institution $institution)
     {
-        //
+        return view('pages.institution.edit', ['institution' => $institution]);
     }
 
     /**
@@ -69,7 +79,11 @@ class InstitutionController extends Controller
      */
     public function update(Request $request, Institution $institution)
     {
-        //
+        $institution       = Institution::find($institution->id);
+        $institution->zone = $request->zone;
+        $institution->save();
+
+        return redirect('institutions')->with('status', 'Instituição editada com sucesso!');
     }
 
     /**
@@ -80,6 +94,8 @@ class InstitutionController extends Controller
      */
     public function destroy(Institution $institution)
     {
-        //
+        $institution->delete();
+
+        return redirect('institutions')->with('status', 'Instituição liminada com sucesso!');
     }
 }

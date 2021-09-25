@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\InvalidTag;
 
 class GroupController extends Controller
 {
@@ -14,7 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::with('institutions')->orderBy('id', 'desc')->simplePaginate(15);
+
+        return view('pages.groups,index', ['groups' => $groups]);
     }
 
     /**
@@ -24,7 +27,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.groups.create');
     }
 
     /**
@@ -35,7 +38,17 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'           => $request->name,
+            'institution_id' => $request->institution_id,
+        ]);
+
+        Group::create([
+            'name'           => $request->name,
+            'institution_id' => $request->institution_id,
+        ]);
+
+        return redirect('groups')->with('status', 'Turma criada com sucesso!');
     }
 
     /**
@@ -46,7 +59,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        return view('pages.groups.show', ['group' => $group]);
     }
 
     /**
@@ -57,7 +70,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('pages.groups.edit', ['group' => $group]);
     }
 
     /**
@@ -69,7 +82,11 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        $group       = Group::find($group->id);
+        $group->name = $request->name;
+        $group->save();
+
+        return redirect('groups')->with('status', 'Turma editada com sucesso!');
     }
 
     /**
@@ -80,6 +97,9 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        $group->institutions()->delete();
+        $group->delete();
+
+        return redirect('groups')->with('status', 'Turma eliminada com sucesso!');
     }
 }
