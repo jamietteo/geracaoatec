@@ -14,7 +14,9 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $roles = Role::orderBy('id', 'desc')->simplePaginate(10);
 
+        return view('pages.roles.index', ['roles' => $roles]);
     }
 
     /**
@@ -24,7 +26,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.roles.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $roles = new Role();
+        $roles->name = $request->name;
+        $roles->save();
+
+        return  redirect('roles')->with('status', 'Role criada com sucesso!');
     }
 
     /**
@@ -46,7 +56,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('pages.roles.show', ['role' => $role]);
     }
 
     /**
@@ -57,7 +67,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('pages.roles.edit', ['role' => $role]);
     }
 
     /**
@@ -69,7 +79,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $role       = Role::find($role->id);
+        $role->name = $request->name;
+
+        return redirect('roles')->with('status', 'Role atualizada com sucesso!');
     }
 
     /**
@@ -80,6 +93,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return redirect('roles')->with('status', 'Role eliminada com sucesso!');
     }
 }
