@@ -41,10 +41,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => $request->name,
-            'atec_number' => $request->atec_number,
-            'password' => $request->password,
-            'institution_id' => $request->institution_id
+            'name'           => 'required',
+            'atec_number'    => 'required',
+            'password'       => 'required|min:6',
+            'institution_id' => 'required|exists:institutions,id'
         ]);
 
         $user = new User();

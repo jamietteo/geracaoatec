@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::orderBy('id', 'desc')->simplePaginate(10);
+
+        return view('pages.students.index', ['students' => $students]);
     }
 
     /**
@@ -24,7 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.students.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'atec_number' => 'required',
+            'name'        => 'required',
+            'birthdate'   => 'required|date_format:DD:MM:YY'
+        ]);
+
+        $student              = new Student();
+        $student->atec_number = $request->atec_number;
+        $student->name        = $request->name;
+        $student->birthdate   = $request->birthdate;
+        $student->save();
+
+        return redirect('students')->with('status', 'Aluno criado com sucesso!');
     }
 
     /**
@@ -46,7 +61,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('pages.students.show', ['student' => $student]);
     }
 
     /**
@@ -57,7 +72,10 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $groups = $student->groups()->get();
+
+        return view('pages.students.edit', ['student' => $student, 'groups' => $groups]);
+
     }
 
     /**
@@ -69,7 +87,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student = Student::find($student->id);
+        $student->atec_number = $request->atec_number;
+        $student->name = $request->name;
+        $student->birthdate = $request->birthdate;
+        $student->groups()->group_id = $request->group_id; //TODO: Verificar isto!
+        $student->save();
+
+        return redirect('students', 'status', 'Aluno atualizado com sucesso!');
     }
 
     /**
@@ -80,6 +105,9 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->groups()->delete();
+        $student->delete();
+
+        return redirect('students')->with('status', 'Aluno eliminado com sucesso!');
     }
 }

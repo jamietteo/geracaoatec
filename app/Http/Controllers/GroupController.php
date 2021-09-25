@@ -39,8 +39,8 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'           => $request->name,
-            'institution_id' => $request->institution_id,
+            'name'           => 'required',
+            'institution_id' => 'required|exists:institutions,id'
         ]);
 
         Group::create([
