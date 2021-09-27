@@ -1,5 +1,5 @@
-<footer class="footer">
-    <div class="container text-center">
-        <span class="text-muted">Geracao Atec</span>
+<footer class="footer text-center">
+    <div class="container">
+        <span class="text-muted">Geração Atec</span>
     </div>
 </footer>
