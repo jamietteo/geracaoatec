@@ -14,7 +14,9 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        $tests = Test::orderBy('id', 'desc')->simplePaginate(10);
+
+        return view('pages.tests.index', ['tests' => $tests]);
     }
 
     /**
@@ -24,7 +26,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.tests.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'date' => 'required|date_format:DD/MM/YY'
+        ]);
+
+        $test = new Test();
+        $test->date = $request->date;
+        $test->save();
+
+        return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
 
     /**
@@ -46,7 +56,7 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        return view('pages.tests.show', ['test' => $test]);
     }
 
     /**
@@ -57,7 +67,7 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        return view('pages.tests.edit', ['test' => $test]);
     }
 
     /**
@@ -69,7 +79,11 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+        $test = Test::find($test->id);
+        $test->date = $request->date;
+        $test->save();
+
+        return redirect('tests')->with('status', 'Teste atualizado com sucesso!');
     }
 
     /**
@@ -80,6 +94,8 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        //
+        $test->delete();
+
+        return redirect('tests')->with('status', 'Teste eliminado com sucesso!');
     }
 }

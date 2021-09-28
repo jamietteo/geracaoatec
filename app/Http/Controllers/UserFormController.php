@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\UserForm;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class UserFormController extends Controller
      */
     public function index()
     {
-        //
+        $userForms = UserForm::orderBy('id', 'desc')->simplePaginate(10);
+
+        return view('pages.userForms.index', ['userForms' => $userForms]);
     }
 
     /**
@@ -24,7 +27,7 @@ class UserFormController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.userForms.create');
     }
 
     /**
@@ -35,7 +38,16 @@ class UserFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'date' => 'required|date_format:DD/MM/YY'
+        ]);
+
+        $userForm = new UserForm();
+        $userForm->date = $request->date;
+        $userForm->periodicity = $request->periodicity;
+        $userForm->save();
+
+        return redirect('userForms')->with('status', 'Ficha de Utente criada com sucesso!');
     }
 
     /**
@@ -46,7 +58,7 @@ class UserFormController extends Controller
      */
     public function show(UserForm $userForm)
     {
-        //
+        return view('pages.userForms.show', ['userForm' => $userForm]);
     }
 
     /**
@@ -57,7 +69,7 @@ class UserFormController extends Controller
      */
     public function edit(UserForm $userForm)
     {
-        //
+        return view('pages.userForms.edit', ['userForm' => $userForm]);
     }
 
     /**
@@ -69,7 +81,12 @@ class UserFormController extends Controller
      */
     public function update(Request $request, UserForm $userForm)
     {
-        //
+        $userForm = UserForm::find($userForm->id);
+        $userForm->date = $request->date;
+        $userForm->periodicity = $request->periodicity;
+        $userForm->save();
+
+        return redirect('userForms')->with('status', 'Ficha de Utente atualizada com sucesso!');
     }
 
     /**
@@ -80,6 +97,8 @@ class UserFormController extends Controller
      */
     public function destroy(UserForm $userForm)
     {
-        //
+        $userForm->delete();
+
+        return redirect('userForms')->with('status', 'Ficha de Utente eliminada com sucesso!');
     }
 }

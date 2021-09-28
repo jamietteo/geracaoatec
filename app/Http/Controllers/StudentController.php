@@ -94,7 +94,7 @@ class StudentController extends Controller
         $student->groups()->group_id = $request->group_id; //TODO: Verificar isto!
         $student->save();
 
-        return redirect('students', 'status', 'Aluno atualizado com sucesso!');
+        return redirect('students')->with('status', 'Aluno atualizado com sucesso!');
     }
 
     /**

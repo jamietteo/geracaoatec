@@ -14,7 +14,9 @@ class SessionController extends Controller
      */
     public function index()
     {
-        //
+        $sessions = Session::orderBy('id', 'desc')->simplePaginate(10);
+
+        return view('pages.students.index', ['sessions' => $sessions]);
     }
 
     /**
@@ -24,7 +26,7 @@ class SessionController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.students.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'begin_time' => 'required|date_format:DD/MM/YY'
+        ]);
+
+        $session = new Session();
+        $session->begin_time = $request->begin_time;
+        $session->comments = $request->comments;
+        $session->save();
+
+        return redirect('sessions')->with('status', 'Sessão criada com sucesso!');
     }
 
     /**
@@ -46,7 +57,7 @@ class SessionController extends Controller
      */
     public function show(Session $session)
     {
-        //
+        return view('pages.students.show', ['session' => $session]);
     }
 
     /**
@@ -57,7 +68,7 @@ class SessionController extends Controller
      */
     public function edit(Session $session)
     {
-        //
+        return view('pages.students.edit', ['session' => $session]);
     }
 
     /**
@@ -69,7 +80,12 @@ class SessionController extends Controller
      */
     public function update(Request $request, Session $session)
     {
-        //
+        $session = Session::find($session->id);
+        $session->begin_time = $request->begin_time;
+        $session->comments = $request->comments;
+        $session->save();
+
+        return redirect('sessions')->with('status', 'Sessão atualizada com sucesso!');
     }
 
     /**
@@ -80,6 +96,8 @@ class SessionController extends Controller
      */
     public function destroy(Session $session)
     {
-        //
+        $session->delete();
+
+        return redirect('sessions')->with('status', 'Sessão eliminada com sucesso!');
     }
 }
