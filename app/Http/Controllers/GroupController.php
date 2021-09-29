@@ -28,7 +28,9 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('pages.groups.create');
+        $institutions = Institution::all();
+
+        return view('pages.groups.create', ['institutions' => $institutions]);
     }
 
     /**

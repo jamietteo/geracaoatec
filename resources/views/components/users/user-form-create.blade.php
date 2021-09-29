@@ -33,7 +33,7 @@
                         id="name"
                         name="name"
                         autocomplete="name"
-                        placeholder="Nome do aluno"
+                        placeholder="Nome do técnico"
                         class="form-control
                         @error('name') is-invalid @enderror"
                         value="{{ old('name') }}"
