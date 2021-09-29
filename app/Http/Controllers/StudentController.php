@@ -41,7 +41,7 @@ class StudentController extends Controller
         $this->validate($request, [
             'atec_number' => 'required',
             'name'        => 'required',
-            'birthdate'   => 'required|date_format:MM:DD:YY'
+            'birthdate'   => 'required'
         ]);
 
         $student              = new Student();
