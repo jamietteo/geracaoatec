@@ -68,6 +68,31 @@
                     @enderror
                 </div>
 
+                <div class="form-student">
+                    <label for="group" class="font-weight-bold">Turma</label>
+                    <div>
+                        <select
+                            id="group_id"
+                            name="group_id"
+                            class="form-select custom-select
+                            @error('group') is-invalid @enderror"
+                            aria-describedby="groupHelp">
+
+                            @foreach($groups as $group)
+                                <option value = " {{ $group->id }} ">
+                                    {{ $group->name }}
+                                </option>
+                            @endforeach
+
+                            @error('group')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                            @enderror
+                        </select>
+                    </div>
+                </div>
+
                 <button type="submit" class="mt-2 mb-5 btn btn-primary">Submit</button>
             </form>
 
