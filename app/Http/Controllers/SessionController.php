@@ -14,9 +14,9 @@ class SessionController extends Controller
      */
     public function index()
     {
-        $sessions = Session::orderBy('id', 'desc')->simplePaginate(10);
+        $sessions = Session::simplePaginate(10);
 
-        return view('pages.students.index', ['sessions' => $sessions]);
+        return view('pages.sessions.index', ['sessions' => $sessions]);
     }
 
     /**

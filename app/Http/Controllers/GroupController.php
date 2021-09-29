@@ -15,9 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::with('institutions')->orderBy('id', 'desc')->simplePaginate(15);
+        $groups = Group::with('institutions')->simplePaginate(15);
 
-        return view('pages.groups,index', ['groups' => $groups]);
+        return view('pages.groups.index', ['groups' => $groups]);
     }
 
     /**

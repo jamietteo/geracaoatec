@@ -15,7 +15,7 @@ class UserFormController extends Controller
      */
     public function index()
     {
-        $userForms = UserForm::orderBy('id', 'desc')->simplePaginate(10);
+        $userForms = UserForm::simplePaginate(10);
 
         return view('pages.userForms.index', ['userForms' => $userForms]);
     }

@@ -14,7 +14,7 @@ class InstitutionController extends Controller
      */
     public function index()
     {
-        $institutions = Institution::orderBy('id', 'desc')->simplePaginate(10);
+        $institutions = Institution::simplePaginate(10);
 
         return view('pages.institutions.index', ['institutions' => $institutions]);
     }

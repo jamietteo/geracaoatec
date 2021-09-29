@@ -14,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::orderBy('id', 'desc')->simplePaginate(10);
+        $tests = Test::simplePaginate(10);
 
         return view('pages.tests.index', ['tests' => $tests]);
     }

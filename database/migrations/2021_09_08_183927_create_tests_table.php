@@ -16,6 +16,7 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->date('date');
+            $table->string('subject');
             $table->timestamps();
             $table->softDeletes();
         });

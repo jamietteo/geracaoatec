@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('institutions')->orderBy('id', 'desc')->simplePaginate(10);
+        $users = User::with('institutions')->simplePaginate(10);
 
         return view('pages.users.index', ['users' => $users]);
     }
