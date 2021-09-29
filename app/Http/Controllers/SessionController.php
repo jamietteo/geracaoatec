@@ -14,7 +14,7 @@ class SessionController extends Controller
      */
     public function index()
     {
-        $sessions = Session::simplePaginate(10);
+        $sessions = Session::with('userForms')->simplePaginate(10);
 
         return view('pages.sessions.index', ['sessions' => $sessions]);
     }

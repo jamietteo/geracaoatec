@@ -15,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::simplePaginate(10);
+        $students = Student::with('groups')->simplePaginate(10);
 
         return view('pages.students.index', ['students' => $students]);
     }
@@ -41,7 +41,7 @@ class StudentController extends Controller
         $this->validate($request, [
             'atec_number' => 'required',
             'name'        => 'required',
-            'birthdate'   => 'required|date_format:DD:MM:YY'
+            'birthdate'   => 'required|date_format:MM:DD:YY'
         ]);
 
         $student              = new Student();

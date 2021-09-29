@@ -18,6 +18,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Data</th>
                     <th scope="col">Assunto</th>
+                    <th scope="col">Alunos</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +29,11 @@
                         <th scope="row">{{$test->id}}</th>
                         <td>{{$test->date}}</td>
                         <td>{{$test->subject}}</td>
+                        <td>
+                            @foreach($test->students as $student)
+                                {{$student->name}}<br>
+                            @endforeach
+                        </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('categories/' . $test->id) }}" method="POST">

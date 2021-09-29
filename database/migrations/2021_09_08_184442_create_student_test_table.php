@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTestStudentTable extends Migration
+class CreateStudentTestTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTestStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('test_student', function (Blueprint $table) {
-            $table->foreignId('test_id')->constrained()->onDelete('cascade');
+        Schema::create('student_test', function (Blueprint $table) {
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->foreignId('test_id')->constrained()->onDelete('cascade');
             $table->primary([
-                'test_id',
-                'student_id'
+                'student_id',
+                 'test_id'
             ]);
             $table->timestamps();
             $table->softDeletes();

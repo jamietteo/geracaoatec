@@ -18,6 +18,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Nr Atec</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Turma</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +29,11 @@
                         <th scope="row">{{$student->id}}</th>
                         <td>{{$student->atec_number}}</td>
                         <td>{{$student->name}}</td>
+                        <td>
+                        @foreach($student->groups as $group)
+                            {{$group->name}}
+                        @endforeach
+                        </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('categories/' . $student->id) }}" method="POST">

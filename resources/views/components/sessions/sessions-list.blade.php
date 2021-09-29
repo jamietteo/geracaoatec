@@ -15,8 +15,11 @@
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Nº Sessão</th>
+                    <th scope="col">Nº Ficha de Utente</th>
+                    <th scope="col">Comentarios</th>
                     <th scope="col">Data</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -24,7 +27,8 @@
                 @foreach($sessions as $session)
                     <tr>
                         <th scope="row">{{$session->session_number}}</th>
-                        <td>{{$session->name}}</td>
+                        <td>{{$session->user_forms_id}}</td>
+                        <td>{{$session->comments}}</td>
                         <td>{{$session->begin_time}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
