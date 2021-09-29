@@ -17,6 +17,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Turma</th>
+                    <th scope="col">Instituição</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,7 @@
                     <tr>
                         <th scope="row">{{$group->id}}</th>
                         <td>{{$group->name}}</td>
+                        <td>{{$group->institution->zone}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('categories/' . $group->id) }}" method="POST">

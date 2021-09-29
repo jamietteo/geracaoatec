@@ -16,37 +16,37 @@
             <div class="sidebar-sticky pt-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ url('/') }}">
                             <span data-feather="bar-chart-2"></span>
                             Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ url('userForms') }}">
                             <span data-feather="file"></span>
                             Acompanhamento
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ url('tests') }}">
                             <span data-feather="pie-chart"></span>
                             Análise de Softskills
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ url('groups') }}">
                             <span data-feather="users"></span>
                             Turmas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ url('students') }}">
                             <span data-feather="user"></span>
                             Alunos
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ url('users') }}">
                             <span data-feather="layers"></span>
                             Técnicos
                         </a>

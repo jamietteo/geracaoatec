@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Institution;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\InvalidTag;
 
@@ -15,7 +16,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::with('institutions')->simplePaginate(15);
+        $groups = Group::with('institution')->paginate(15);
 
         return view('pages.groups.index', ['groups' => $groups]);
     }

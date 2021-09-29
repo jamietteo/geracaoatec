@@ -13,7 +13,7 @@ class Group extends Model
       'name'
     ];
 
-    public function institutions(){
+    public function institution(){
         return $this->belongsTo(Institution::class);
     }
 
