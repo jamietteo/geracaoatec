@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $institutions = Institution::orderBy('zone')->get;
+        $institutions = Institution::all();
 
         return view('pages.users.create', ['institutions' => $institutions]);
     }

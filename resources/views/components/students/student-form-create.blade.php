@@ -17,9 +17,9 @@
                         @error('atec_number') is-invalid @enderror"
                         value="{{ old('atec_number') }}"
                         required
-                        aria-describedby="nameHelp">
+                        aria-describedby="atec_numberHelp">
 
-                    @error('name')
+                    @error('atec_number')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -59,7 +59,7 @@
                         @error('birthdate') is-invalid @enderror"
                         value="{{ old('birthdate') }}"
                         required
-                        aria-describedby="nameHelp">
+                        aria-describedby="birthdateHelp">
 
                     @error('birthdate')
                     <span class="invalid-feedback" role="alert">
