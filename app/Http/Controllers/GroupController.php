@@ -29,7 +29,6 @@ class GroupController extends Controller
     public function create()
     {
         $institutions = Institution::all();
-
         return view('pages.groups.create', ['institutions' => $institutions]);
     }
 
@@ -43,7 +42,7 @@ class GroupController extends Controller
     {
         $this->validate($request, [
             'name'           => 'required',
-            'institution_id' => 'required|exists:institutions,id'
+            'institution_id' => 'required'
         ]);
 
         Group::create([
