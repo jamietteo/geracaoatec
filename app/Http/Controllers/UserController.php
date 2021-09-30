@@ -93,6 +93,7 @@ class UserController extends Controller
     {
         $user                 = User::find($user->id);
         $user->name           = $request->name;
+        $user->password       = $request->password;
         $user->atec_number    = $request->atec_number;
         $user->institution_id = $request->institution_id;
         $user->save();
