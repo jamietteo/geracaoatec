@@ -27,10 +27,10 @@
                         <td>{{$role->name}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('categories/' . $role->id) }}" method="POST">
-                                    <a href="{{ url('categories/' . $role->id) }}" type="button"
+                                <form action="{{ url('roles/' . $role->id) }}" method="POST">
+                                    <a href="{{ url('roles/' . $role->id) }}" type="button"
                                        class="btn btn-success">Show</a>
-                                    <a href="{{ url('categories/' . $role->id . '/edit') }}" type="button"
+                                    <a href="{{ url('roles/' . $role->id . '/edit') }}" type="button"
                                        class="btn btn-primary">Edit</a>
                                     @csrf
                                     @method('DELETE')

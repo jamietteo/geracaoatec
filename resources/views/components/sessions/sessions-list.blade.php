@@ -32,10 +32,10 @@
                         <td>{{$session->begin_time}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('categories/' . $session->id) }}" method="POST">
-                                    <a href="{{ url('categories/' . $session->id) }}" type="button"
+                                <form action="{{ url('sessions/' . $session->id) }}" method="POST">
+                                    <a href="{{ url('sessions/' . $session->id) }}" type="button"
                                        class="btn btn-success">Show</a>
-                                    <a href="{{ url('categories/' . $session->id . '/edit') }}" type="button"
+                                    <a href="{{ url('sessions/' . $session->id . '/edit') }}" type="button"
                                        class="btn btn-primary">Edit</a>
                                     @csrf
                                     @method('DELETE')

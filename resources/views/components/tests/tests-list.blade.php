@@ -36,10 +36,10 @@
                         </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('categories/' . $test->id) }}" method="POST">
-                                    <a href="{{ url('categories/' . $test->id) }}" type="button"
+                                <form action="{{ url('tests/' . $test->id) }}" method="POST">
+                                    <a href="{{ url('tests/' . $test->id) }}" type="button"
                                        class="btn btn-success">Show</a>
-                                    <a href="{{ url('categories/' . $test->id . '/edit') }}" type="button"
+                                    <a href="{{ url('tests/' . $test->id . '/edit') }}" type="button"
                                        class="btn btn-primary">Edit</a>
                                     @csrf
                                     @method('DELETE')

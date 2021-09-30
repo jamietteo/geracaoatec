@@ -29,10 +29,10 @@
                         <td>{{$userForm->periodicity}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('categories/' . $userForm->id) }}" method="POST">
-                                    <a href="{{ url('categories/' . $userForm->id) }}" type="button"
+                                <form action="{{ url('userForms/' . $userForm->id) }}" method="POST">
+                                    <a href="{{ url('userForms/' . $userForm->id) }}" type="button"
                                        class="btn btn-success">Show</a>
-                                    <a href="{{ url('categories/' . $userForm->id . '/edit') }}" type="button"
+                                    <a href="{{ url('userForms/' . $userForm->id . '/edit') }}" type="button"
                                        class="btn btn-primary">Edit</a>
                                     @csrf
                                     @method('DELETE')

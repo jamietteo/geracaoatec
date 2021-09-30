@@ -29,10 +29,10 @@
                         <td>{{$group->institution->zone}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('categories/' . $group->id) }}" method="POST">
-                                    <a href="{{ url('categories/' . $group->id) }}" type="button"
+                                <form action="{{ url('groups/' . $group->id) }}" method="POST">
+                                    <a href="{{ url('groups/' . $group->id) }}" type="button"
                                        class="btn btn-success">Show</a>
-                                    <a href="{{ url('categories/' . $group->id . '/edit') }}" type="button"
+                                    <a href="{{ url('groups/' . $group->id . '/edit') }}" type="button"
                                        class="btn btn-primary">Edit</a>
                                     @csrf
                                     @method('DELETE')

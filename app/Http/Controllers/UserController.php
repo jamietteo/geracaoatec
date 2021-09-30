@@ -95,6 +95,9 @@ class UserController extends Controller
         $user->name           = $request->name;
         $user->atec_number    = $request->atec_number;
         $user->institution_id = $request->institution_id;
+        $user->save();
+
+        return redirect('users')->with('status','User edited successfully!');
     }
 
     /**
