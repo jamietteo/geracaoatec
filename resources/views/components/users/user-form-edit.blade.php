@@ -8,16 +8,6 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="name" class="font-weight-bold">Nome</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="form-control"
-                        value="{{ $user->name }}">
-                </div>
-
-                <div class="form-group">
                     <label for="atec_number" class="font-weight-bold">Nr Atec</label>
                     <input
                         type="text"
@@ -25,6 +15,16 @@
                         name="atec_number"
                         class="form-control"
                         value="{{ $user->atec_number }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="font-weight-bold">Nome</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control"
+                        value="{{ $user->name }}">
                 </div>
 
                 <div class="form-group">

@@ -72,7 +72,9 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        return view('pages.groups.edit', ['group' => $group]);
+        $institutions = Institution::orderBy('zone')->get();
+
+        return view('pages.groups.edit', ['group' => $group, 'institutions' => $institutions]);
     }
 
     /**
@@ -86,6 +88,7 @@ class GroupController extends Controller
     {
         $group       = Group::find($group->id);
         $group->name = $request->name;
+        $group->institution_id = $request->institution_id;
         $group->save();
 
         return redirect('groups')->with('status', 'Turma editada com sucesso!');
