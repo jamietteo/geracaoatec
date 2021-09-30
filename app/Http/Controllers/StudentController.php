@@ -17,6 +17,7 @@ class StudentController extends Controller
     {
         $students = Student::with('groups')->simplePaginate(10);
 
+
         return view('pages.students.index', ['students' => $students]);
     }
 
@@ -27,6 +28,7 @@ class StudentController extends Controller
      */
     public function create()
     {
+        $students = Student::all();
         $groups = Group::all();
 
         return view('pages.students.create', ['groups' => $groups]);
@@ -45,12 +47,14 @@ class StudentController extends Controller
             'name'        => 'required',
             'birthdate'   => 'required'
         ]);
-
+        $groups = Group::all();
         $student              = new Student();
         $student->atec_number = $request->atec_number;
         $student->name        = $request->name;
         $student->birthdate   = $request->birthdate;
+
         $student->save();
+        $student->groups()->attach($groups);
 
         return redirect('students')->with('status', 'Aluno criado com sucesso!');
     }

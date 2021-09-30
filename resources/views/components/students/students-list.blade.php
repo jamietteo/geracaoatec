@@ -19,7 +19,6 @@
                     <th scope="col">Nr Atec</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Turma</th>
-
                 </tr>
                 </thead>
                 <tbody>
