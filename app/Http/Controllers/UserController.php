@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('institutions')->simplePaginate(10);
+        $users = User::with('institution')->simplePaginate(10);
 
         return view('pages.users.index', ['users' => $users]);
     }
@@ -44,7 +44,7 @@ class UserController extends Controller
             'name'           => 'required',
             'atec_number'    => 'required',
             'password'       => 'required|min:6',
-            'institution_id' => 'required|exists:institutions,id'
+            'institution_id' => 'required'
         ]);
 
         $user = new User();
@@ -66,6 +66,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+
         return view('pages.users.show', ['user' => $user]);
     }
 

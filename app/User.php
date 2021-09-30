@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'atec_number', 'password',
+        'name', 'atec_number', 'password', 'institution_id'
     ];
 
     /**
@@ -42,7 +42,7 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function institutions(){
+    public function institution(){
         return $this->belongsTo(Institution::class);
     }
 
