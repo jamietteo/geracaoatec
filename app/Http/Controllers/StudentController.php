@@ -28,7 +28,6 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $students = Student::all();
         $groups = Group::all();
 
         return view('pages.students.create', ['groups' => $groups]);
