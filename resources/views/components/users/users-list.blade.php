@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 p-4">
             <h1>Lista de Colaboradores</h1><a href="{{url('register')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar Colaborador</a>
 
             @if ( session('status') )

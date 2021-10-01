@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 p-4">
             <h1>Lista de turmas</h1><a href="{{ url('groups/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar turma</a></h1>
 
             @if ( session('status') )

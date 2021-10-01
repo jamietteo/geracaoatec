@@ -1,6 +1,6 @@
 <div class="container pb-5">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 p-4">
             <h1>Editar Turma</h1>
 
             <form method="POST" action="{{ url('groups/' . $group->id) }}">

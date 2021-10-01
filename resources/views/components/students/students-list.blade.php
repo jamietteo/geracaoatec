@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 p-4">
             <h1>Lista de Alunos</h1><a href="{{ url('students/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar aluno</a>
 
             @if ( session('status') )

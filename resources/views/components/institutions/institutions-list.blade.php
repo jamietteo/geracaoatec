@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 p-4">
             <h1>Instituições</h1>
 
             @if ( session('status') )
