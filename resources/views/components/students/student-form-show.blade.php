@@ -30,13 +30,15 @@
 
                 <div class="form-group">
                     <label for="group" class="font-weight-bold">Turma</label>
+                    @foreach($student->groups as $group)
                     <input
                         type="text"
                         id="group"
                         name="group"
                         readonly
                         class="form-control"
-                        value="{{ $student->groups->name }}">
+                        value="{{ $group->name}}" >
+                    @endforeach
                 </div>
 
                 <a href="{{ url('students') }}" class="mt-2 mb-5 btn btn-primary">Back</a>

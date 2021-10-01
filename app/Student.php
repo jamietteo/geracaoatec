@@ -12,7 +12,7 @@ class Student extends Model
 
     protected $fillable = [
         'atec_number',
-        'nome',
+        'name',
         'birthdate'
     ];
 

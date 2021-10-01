@@ -66,6 +66,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
+
         return view('pages.students.show', ['student' => $student]);
     }
 
@@ -110,7 +111,6 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        $student->groups()->delete();
         $student->delete();
 
         return redirect('students')->with('status', 'Aluno eliminado com sucesso!');
