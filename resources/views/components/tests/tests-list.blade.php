@@ -12,7 +12,7 @@
                 </div>
             @endif
 
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered m-4 mx-auto">>
                 <thead>
                 <tr>
                     <th scope="col">#</th>
