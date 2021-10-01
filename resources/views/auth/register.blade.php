@@ -26,13 +26,27 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="atec_number" class="col-md-4 col-form-label text-md-right">{{ __('Numero ATEC') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="atec_number" type="text" class="form-control @error('atec_number') is-invalid @enderror" name="atec_number" value="{{ old('atec_number') }}" required autocomplete="atec_number">
 
-                                @error('email')
+                                @error('atec_number')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="institution_id" class="col-md-4 col-form-label text-md-right">{{ __('Instituicao') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="institution_id" type="text" class="form-control @error('institution_id') is-invalid @enderror" name="institution_id" value="{{ old('institution_id') }}" required autocomplete="institution_id">
+
+                                @error('institution_id')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
