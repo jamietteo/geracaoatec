@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h1>Lista de Técnicos</h1><a href="{{ url('users/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar técnico</a>
+            <h1>Lista de Colaboradores</h1><a href="{{ url('users/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar técnico</a>
 
             @if ( session('status') )
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
