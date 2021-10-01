@@ -102,6 +102,7 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
+        $group->students()->delete();
         $group->delete();
 
         return redirect('groups')->with('status', 'Turma eliminada com sucesso!');

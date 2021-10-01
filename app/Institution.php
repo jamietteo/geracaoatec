@@ -13,8 +13,8 @@ class Institution extends Model
         'zone'
     ];
 
-    public function technicians(){
-        return $this->hasMany(Technician::class);
+    public function users(){
+        return $this->hasMany(User::class);
     }
 
     public function groups(){

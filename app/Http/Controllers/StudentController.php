@@ -53,7 +53,8 @@ class StudentController extends Controller
         $student->birthdate   = $request->birthdate;
 
         $student->save();
-        $student->groups()->attach($groups);
+        $student->groups()->attach($request->group_id);
+
 
         return redirect('students')->with('status', 'Aluno criado com sucesso!');
     }
@@ -78,7 +79,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        $groups = $student->groups()->get();
+        $groups = Group::all();
 
         return view('pages.students.edit', ['student' => $student, 'groups' => $groups]);
 
@@ -97,7 +98,7 @@ class StudentController extends Controller
         $student->atec_number = $request->atec_number;
         $student->name = $request->name;
         $student->birthdate = $request->birthdate;
-        $student->groups()->group_id = $request->group_id; //TODO: Verificar isto!
+        $student->groups()->sync($request->group_id);
         $student->save();
 
         return redirect('students')->with('status', 'Aluno atualizado com sucesso!');

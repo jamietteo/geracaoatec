@@ -94,6 +94,8 @@ class InstitutionController extends Controller
      */
     public function destroy(Institution $institution)
     {
+        $institution->users()->delete();
+        $institution->groups()->delete();
         $institution->delete();
 
         return redirect('institutions')->with('status', 'Instituição liminada com sucesso!');

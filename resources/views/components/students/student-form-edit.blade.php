@@ -43,7 +43,7 @@
                         name="group_id"
                         id="group_id"
                         class="form-control">
-                        @foreach($groups as $group)
+                        @foreach($student->groups as $group)
                             <option value="{{$group->id}}"
                                     @if($student->group_id == $group->id)
                                     selected

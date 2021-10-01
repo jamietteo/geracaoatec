@@ -29,9 +29,13 @@
                         <td>{{$student->atec_number}}</td>
                         <td>{{$student->name}}</td>
                         <td>
+                            @if(sizeof($student->groups) > 0)
                         @foreach($student->groups as $group)
                             {{$group->name}}
                         @endforeach
+                            @else
+                                Sem Turma
+                                @endif
                         </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
