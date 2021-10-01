@@ -37,8 +37,21 @@
                         readonly
                         class="form-control"
                         @if(!is_null($user->institution))
-                        value="{{ $user->institution->zone }}"
-                        @endif> <!-- VALIDAR ZONA -->
+                            value="{{ $user->institution->zone }}"
+                        @endif>
+                </div>
+
+                <div class="form-group">
+                    <label for="role" class="font-weight-bold">Cargo</label>
+                    @foreach($user->roles as $role)
+                    <input
+                        type="text"
+                        id="role"
+                        name="role"
+                        readonly
+                        class="form-control"
+                        value="{{$role->name}}">
+                    @endforeach
                 </div>
 
                 <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">Back</a>

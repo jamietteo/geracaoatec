@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('components.users.users-list', ['users' => $users])
+    @component('components.users.users-list', ['users' => $users, 'roles' => $roles])
     @endcomponent
 
 @endsection

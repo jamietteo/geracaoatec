@@ -48,27 +48,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password" class="font-weight-bold">Password</label>
-                    <input
-                        type="text"
-                        id="password"
-                        name="password"
-                        autocomplete="password"
-                        placeholder="Password"
-                        class="form-control
-                        @error('password') is-invalid @enderror"
-                        value="{{ old('password') }}"
-                        required
-                        aria-describedby="passwordHelp">
-
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <label for="institution" class="font-weight-bold">Instituição</label>
                     <div>
                         <select
@@ -92,6 +71,54 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="role" class="font-weight-bold">Cargo</label>
+                    <div>
+                        <select
+                            id="role_id"
+                            name="role_id"
+                            class="form-select custom-select
+                            @error('role') is-invalid @enderror"
+                            aria-describedby="roleHelp">
+
+                            @foreach($roles as $role)
+                                <option value = " {{ $role->id }} ">
+                                    {{ $role->name }}
+                                </option>
+                            @endforeach
+
+                            @error('institution')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                            @enderror
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="font-weight-bold">Password</label>
+                    <input
+                        type="text"
+                        id="password"
+                        name="password"
+                        autocomplete="password"
+                        placeholder="Password"
+                        class="form-control
+                        @error('password') is-invalid @enderror"
+                        value="{{ old('password') }}"
+                        required
+                        aria-describedby="passwordHelp">
+
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+
 
                 <button type="submit" class="mt-2 mb-5 btn btn-primary">Submit</button>
                 <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">Back</a>

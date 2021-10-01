@@ -28,13 +28,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password" class="font-weight-bold">Password</label>
-                    <input
-                        type="text"
-                        id="password"
-                        name="password"
-                        class="form-control"
-                        value="{{ $user->password }}">
+                    <label for="role" class="font-weight-bold">Cargo</label>
+                    <select
+                        name="role_id"
+                        id="role_id"
+                        class="form-control">
+                        @foreach($roles as $role)
+                            <option value="{{$role->id}}"
+                                    @if($user->role_id == $role->id)
+                                    selected
+                                @endif> {{$role->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -56,6 +61,18 @@
                     </span>
                     @enderror
                 </div>
+
+                <div class="form-group">
+                    <label for="password" class="font-weight-bold">Password</label>
+                    <input
+                        type="text"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        value="{{ $user->password }}">
+                </div>
+
+
 
                 <button type="submit" class="mt-2 mb-5 btn btn-primary">Submit</button>
                 <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">Back</a>

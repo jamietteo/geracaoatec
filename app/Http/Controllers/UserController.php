@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Institution;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        $roles = Role::all();
         $users = User::with('institution')->simplePaginate(10);
 
-        return view('pages.users.index', ['users' => $users]);
+        return view('pages.users.index', ['users' => $users, 'roles' => $roles]);
     }
 
     /**
@@ -28,8 +30,9 @@ class UserController extends Controller
     public function create()
     {
         $institutions = Institution::all();
+        $roles = Role::all();
 
-        return view('pages.users.create', ['institutions' => $institutions]);
+        return view('pages.users.create', ['institutions' => $institutions, 'roles' => $roles]);
     }
 
     /**
@@ -54,6 +57,7 @@ class UserController extends Controller
         $user->institution_id = $request->institution_id;
 
         $user->save();
+        $user->roles()->attach($request->role_id);
 
         return redirect('users')->with('status', 'User criado com sucesso!');
     }
@@ -78,9 +82,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $roles = Role::all();
         $institutions = Institution::orderBy('zone')->get();
 
-        return view('pages.users.edit', ['user' => $user, 'institutions' => $institutions]);
+        return view('pages.users.edit', ['user' => $user, 'institutions' => $institutions, 'roles' => $roles]);
     }
 
     /**
@@ -97,6 +102,7 @@ class UserController extends Controller
         $user->password       = $request->password;
         $user->atec_number    = $request->atec_number;
         $user->institution_id = $request->institution_id;
+        $user->roles()->sync($request->role_id);
         $user->save();
 
         return redirect('users')->with('status','User edited successfully!');

@@ -18,6 +18,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nr Atec</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Cargo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,11 @@
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->atec_number}}</td>
                         <td>{{$user->name}}</td>
+                        <td>
+                            @foreach($user->roles as $role)
+                                    {{ $role->name }}
+                            @endforeach
+                        </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('users/' . $user->id) }}" method="POST">
