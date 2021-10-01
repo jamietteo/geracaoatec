@@ -1,7 +1,7 @@
 <div class="container pb-5">
     <div class="row">
         <div class="col-12">
-            <h1>Adicionar Técnico</h1>
+            <h1>Adicionar Colaborador</h1>
 
             <form method="POST" action="{{ url('users') }}">
                 @csrf

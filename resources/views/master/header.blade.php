@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('users') }}">
                             <span data-feather="layers"></span>
-                            Técnicos
+                            Colaboradores
                         </a>
                     </li>
                 </ul>
