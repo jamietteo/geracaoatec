@@ -1,7 +1,7 @@
 <div class="container pb-5">
     <div class="row">
         <div class="col-12">
-            <h1>Editar Colaborador</h1>
+            <h1>Visualizador Colaborador</h1>
 
             <form method="POST" action="{{ url('users/' . $user->id) }}">
                 @csrf
@@ -26,17 +26,6 @@
                         readonly
                         class="form-control"
                         value="{{ $user->name }}">
-                </div>
-
-                <div class="form-group">
-                    <label for="password" class="font-weight-bold">Password</label>
-                    <input
-                        type="text"
-                        id="password"
-                        name="password"
-                        readonly
-                        class="form-control"
-                        value="{{ $user->password }}">
                 </div>
 
                 <div class="form-group">
