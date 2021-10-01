@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h1>Lista de turmas</h1>
+            <h1>Lista de turmas</h1><a href="{{ url('groups/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar turma</a></h1>
 
             @if ( session('status') )
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
