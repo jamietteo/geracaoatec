@@ -5,7 +5,13 @@
     </button>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            @if(Auth::user())
+                <a class="nav-link" href="#">Olá, {{ Auth::user()->name }}!</a>
+            @endif
+            @if(!Auth::user())
+                <a class="nav-link" href="{{url('login')}}">Login</a>
+            @endif
+
         </li>
     </ul>
 </nav>
