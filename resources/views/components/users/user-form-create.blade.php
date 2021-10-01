@@ -94,6 +94,7 @@
                 </div>
 
                 <button type="submit" class="mt-2 mb-5 btn btn-primary">Submit</button>
+                <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">Back</a>
             </form>
 
         </div>
