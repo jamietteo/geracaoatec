@@ -1,7 +1,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h1>Lista de Colaboradores</h1><a href="{{ url('users/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Criar técnico</a>
+            <h1>Lista de Colaboradores</h1>
+            <div class="container p-1">
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <a href="{{url('register')}}" type="submit" class="btn btn-primary">
+                            Criar Colaborador
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             @if ( session('status') )
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
