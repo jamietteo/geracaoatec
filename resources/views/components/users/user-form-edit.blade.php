@@ -72,17 +72,6 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <label for="password" class="font-weight-bold">Password</label>
-                    <input
-                        type="text"
-                        id="password"
-                        name="password"
-                        class="form-control"
-                        value="{{ $user->password }}">
-                </div>
-
-
 
                 <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"

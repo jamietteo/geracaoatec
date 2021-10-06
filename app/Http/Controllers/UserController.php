@@ -46,7 +46,6 @@ class UserController extends Controller
         $this->validate($request, [
             'name'           => 'required',
             'atec_number'    => 'required',
-            'password'       => 'required|min:6',
             'email'          => 'required',
             'institution_id' => 'required'
         ]);
@@ -54,7 +53,6 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->atec_number = $request->atec_number;
-        $user->password = $request->password;
         $user->email = $request->email;
         $user->institution_id = $request->institution_id;
 
@@ -101,7 +99,6 @@ class UserController extends Controller
     {
         $user                 = User::find($user->id);
         $user->name           = $request->name;
-        $user->password       = $request->password;
         $user->atec_number    = $request->atec_number;
         $user->email          = $request->email;
         $user->institution_id = $request->institution_id;
