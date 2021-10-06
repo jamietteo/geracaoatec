@@ -47,6 +47,7 @@ class UserController extends Controller
             'name'           => 'required',
             'atec_number'    => 'required',
             'password'       => 'required|min:6',
+            'email'          => 'required',
             'institution_id' => 'required'
         ]);
 
@@ -54,6 +55,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->atec_number = $request->atec_number;
         $user->password = $request->password;
+        $user->email = $request->email;
         $user->institution_id = $request->institution_id;
 
         $user->save();
@@ -101,6 +103,7 @@ class UserController extends Controller
         $user->name           = $request->name;
         $user->password       = $request->password;
         $user->atec_number    = $request->atec_number;
+        $user->email          = $request->email;
         $user->institution_id = $request->institution_id;
         $user->roles()->sync($request->role_id);
         $user->save();

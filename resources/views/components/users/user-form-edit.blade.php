@@ -28,6 +28,16 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        value="{{ $user->email }}">
+                </div>
+
+                <div class="form-group">
                     <label for="role" class="font-weight-bold">Cargo</label>
                     <select
                         name="role_id"
