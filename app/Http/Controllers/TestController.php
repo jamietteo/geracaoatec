@@ -38,11 +38,13 @@ class TestController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date' => 'required'
+            'date' => 'required',
+            'subject' => 'required'
         ]);
 
         $test = new Test();
         $test->date = $request->date;
+        $test->subject = $request->subject;
         $test->save();
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
@@ -81,6 +83,7 @@ class TestController extends Controller
     {
         $test = Test::find($test->id);
         $test->date = $request->date;
+        $test->subject = $request->subject;
         $test->save();
 
         return redirect('tests')->with('status', 'Teste atualizado com sucesso!');
