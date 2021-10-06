@@ -54,15 +54,18 @@
 
                 <div class="form-group">
                     <label for="role" class="font-weight-bold">Cargo</label>
-                    @foreach($user->roles as $role)
                     <input
                         type="text"
                         id="role"
                         name="role"
                         readonly
                         class="form-control"
-                        value="{{$role->name}}">
-                    @endforeach
+                        @foreach($user->roles as $role)
+                            @if(!is_null($role->name))
+                                value="{{$role->name}}"
+                            @endif
+                        @endforeach
+                    >
                 </div>
 
                 <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">
