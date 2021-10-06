@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de Alunos</h1><a href="{{ url('students/create') }}" class="btn btn-primary btn-lg active"
@@ -22,17 +22,18 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Nr Atec</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Turma</th>
+                    <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 @foreach($students as $student)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$student->id}}</th>
                         <td>{{$student->atec_number}}</td>
                         <td>{{$student->name}}</td>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de Sessões</h1>
@@ -14,7 +14,7 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">Nº Sessão</th>
                     <th scope="col">Nº Ficha de Utente</th>
                     <th scope="col">Comentarios</th>
@@ -25,7 +25,7 @@
                 <tbody>
 
                 @foreach($sessions as $session)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$session->session_number}}</th>
                         <td>{{$session->user_forms_id}}</td>
                         <td>{{$session->comments}}</td>

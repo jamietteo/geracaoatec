@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Instituições</h1>
@@ -14,15 +14,16 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Zona</th>
+                    <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 @foreach($institutions as $institution)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$institution->id}}</th>
                         <td>{{$institution->zone}}</td>
                         <td class="text-center align-middle">

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de Colaboradores</h1><a href="{{url('register')}}" class="btn btn-primary btn-lg active"
@@ -22,17 +22,18 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Nr Atec</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cargo</th>
+                    <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 @foreach($users as $user)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->atec_number}}</td>
                         <td>{{$user->name}}</td>

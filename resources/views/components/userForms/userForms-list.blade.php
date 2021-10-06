@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de Fichas de utente</h1>
@@ -14,7 +14,7 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Data</th>
                     <th scope="col">Periodicidade</th>
@@ -23,7 +23,7 @@
                 <tbody>
 
                 @foreach($userForms as $userForm)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$userForm->id}}</th>
                         <td>{{$userForm->date}}</td>
                         <td>{{$userForm->periodicity}}</td>

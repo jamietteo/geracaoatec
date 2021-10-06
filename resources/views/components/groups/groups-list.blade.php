@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de turmas</h1><a href="{{ url('groups/create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
@@ -21,16 +21,17 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Turma</th>
                     <th scope="col">Instituição</th>
+                    <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 @foreach($groups as $group)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$group->id}}</th>
                         <td>{{$group->name}}</td>
                         <td>{{$group->institution->zone}}</td>

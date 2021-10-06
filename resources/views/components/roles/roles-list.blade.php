@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de cargos</h1>
@@ -14,7 +14,7 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Cargo</th>
                 </tr>
@@ -22,7 +22,7 @@
                 <tbody>
 
                 @foreach($roles as $role)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$role->id}}</th>
                         <td>{{$role->name}}</td>
                         <td class="text-center align-middle">

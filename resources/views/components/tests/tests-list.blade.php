@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
             <h1>Lista de testes</h1>
@@ -14,7 +14,7 @@
 
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Data</th>
                     <th scope="col">Assunto</th>
@@ -25,7 +25,7 @@
                 <tbody>
 
                 @foreach($tests as $test)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$test->id}}</th>
                         <td>{{$test->date}}</td>
                         <td>{{$test->subject}}</td>
