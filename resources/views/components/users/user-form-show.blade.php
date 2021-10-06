@@ -61,9 +61,7 @@
                         readonly
                         class="form-control"
                         @foreach($user->roles as $role)
-                            @if(!is_null($role->name))
-                                value="{{$role->name}}"
-                            @endif
+                            value="{{$role->name}}"
                         @endforeach
                     >
                 </div>
