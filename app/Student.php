@@ -20,7 +20,7 @@ class Student extends Model
         return $this->belongsToMany(Group::class);
     }
 
-    public function userforms(){
+    public function userform(){
         return $this->belongsTo(UserForm::class);
     }
 

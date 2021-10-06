@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $users = User::with('institution')->simplePaginate(10);
+        $users = User::with('institution')->Paginate(5);
 
         return view('pages.users.index', ['users' => $users, 'roles' => $roles]);
     }
