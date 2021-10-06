@@ -38,7 +38,7 @@ class TestController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date' => 'required|date_format:DD/MM/YY'
+            'date' => 'required'
         ]);
 
         $test = new Test();

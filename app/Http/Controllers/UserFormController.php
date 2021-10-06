@@ -15,7 +15,7 @@ class UserFormController extends Controller
      */
     public function index()
     {
-        $userForms = UserForm::simplePaginate(10);
+        $userForms = UserForm::Paginate(10);
 
         return view('pages.userForms.index', ['userForms' => $userForms]);
     }
