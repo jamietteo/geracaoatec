@@ -68,7 +68,7 @@
                     @enderror
                 </div>
 
-                <div class="form-student">
+                <div class="form-group">
                     <label for="group" class="font-weight-bold">Turma</label>
                     <div>
                         <select

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Test;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::with('students')->simplePaginate(10);
+        $tests = Test::with('students', 'groups')->simplePaginate(10);
 
         return view('pages.tests.index', ['tests' => $tests]);
     }
@@ -26,7 +27,9 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('pages.tests.create');
+        $groups = Group::all();
+
+        return view('pages.tests.create', ['groups' => $groups]);
     }
 
     /**
@@ -46,6 +49,7 @@ class TestController extends Controller
         $test->date = $request->date;
         $test->subject = $request->subject;
         $test->save();
+        $test->groups()->attach($request->group_id);
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
@@ -69,7 +73,9 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        return view('pages.tests.edit', ['test' => $test]);
+        $groups = Group::all();
+
+        return view('pages.tests.edit', ['test' => $test, 'groups' => $groups]);
     }
 
     /**
@@ -84,6 +90,7 @@ class TestController extends Controller
         $test = Test::find($test->id);
         $test->date = $request->date;
         $test->subject = $request->subject;
+        $test->groups()->sync($request->group_id);
         $test->save();
 
         return redirect('tests')->with('status', 'Teste atualizado com sucesso!');

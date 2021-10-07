@@ -26,7 +26,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Data</th>
                     <th scope="col">Assunto</th>
-                    <th scope="col">Alunos</th>
+                    <th scope="col">Turma</th>
 
                 </tr>
                 </thead>
@@ -38,8 +38,8 @@
                         <td>{{$test->date}}</td>
                         <td>{{$test->subject}}</td>
                         <td>
-                            @foreach($test->students as $student)
-                                {{$student->name}}<br>
+                            @foreach($test->groups as $group)
+                                {{$group->name}}<br>
                             @endforeach
                         </td>
                         <td class="text-center align-middle">
