@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('components.groups.group-form-show', ['group' => $group])
+    @component('components.groups.group-form-show', ['group' => $group, 'students' => $students])
     @endcomponent
 
 @endsection

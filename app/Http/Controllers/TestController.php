@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Student;
 use App\Test;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,7 @@ class TestController extends Controller
     public function create()
     {
         $groups = Group::all();
+        //$students = Student::all();
 
         return view('pages.tests.create', ['groups' => $groups]);
     }

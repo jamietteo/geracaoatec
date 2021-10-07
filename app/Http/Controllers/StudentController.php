@@ -46,7 +46,7 @@ class StudentController extends Controller
             'name'        => 'required',
             'birthdate'   => 'required'
         ]);
-        $groups = Group::all();
+
         $student              = new Student();
         $student->atec_number = $request->atec_number;
         $student->name        = $request->name;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Institution;
+use App\Student;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\InvalidTag;
 
@@ -61,7 +62,9 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        return view('pages.groups.show', ['group' => $group]);
+        $students = Student::all();
+
+        return view('pages.groups.show', ['group' => $group, 'students' => $students]);
     }
 
     /**

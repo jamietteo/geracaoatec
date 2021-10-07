@@ -14,7 +14,7 @@ class Test extends Model
     ];
 
     public function students(){
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class)->withPivot('evaluation');
     }
 
     public function groups(){
