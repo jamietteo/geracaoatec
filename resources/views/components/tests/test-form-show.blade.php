@@ -1,7 +1,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 p-4">
-            <h1>Visualizador Colaborador</h1>
+            <h1>Mostrar Teste</h1>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('groups') }}">Turmas</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('tests') }}">Testes</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$test->id}}</li>
+
+                </ol>
+            </nav>
 
             <form method="POST" action="{{ url('tests/' . $test->id) }}">
                 @csrf
@@ -28,7 +37,33 @@
                         value="{{ $test->subject }}">
                 </div>
 
-                <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">
+
+                <table class="table table-striped table-bordered m-4 mx-auto">
+                    <thead>
+                    <tr class="text-center">
+                        <th scope="col">Aluno</th>
+                        <th scope="col">Turma</th>
+                        <th scope="col">Nota</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach($test->students as $student)
+                        <tr class="text-center">
+                            <td>{{$student->name}}</td>
+
+                            @foreach($student->groups as $group)
+                                <td>{{$group->name}}</td>
+                            @endforeach
+
+                            <td>{{$student->pivot->evaluation}}</td>
+                        </tr>
+                    @endforeach
+
+                    </tbody>
+                </table>
+
+                <a href="{{ url('tests') }}" class="mt-2 mb-5 btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                          class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -37,31 +72,6 @@
                     Voltar</a>
 
             </form>
-
-            <table class="table table-striped table-bordered m-4 mx-auto">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Aluno</th>
-                        <th scope="col">Turma</th>
-                        <th scope="col">Nota</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                @foreach($test->students as $student)
-                    <tr class="text-center">
-                        <td>{{$student->name}}</td>
-
-                        @foreach($student->groups as $group)
-                            <td>{{$group->name}}</td>
-                        @endforeach
-
-                        <td>{{$student->pivot->evaluation}}</td>
-                    </tr>
-                @endforeach
-
-                </tbody>
-            </table>
 
         </div>
     </div>

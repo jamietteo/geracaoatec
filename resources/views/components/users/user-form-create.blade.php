@@ -120,7 +120,7 @@
 
 
 
-                <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-primary">
+                <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                          class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"

@@ -1,7 +1,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 p-4">
-            <h1>Adicionar aluno</h1>
+            <h1>Criar aluno</h1>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('students') }}">Alunos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Criar Aluno</li>
+                </ol>
+            </nav>
 
             <form method="POST" action="{{ url('students') }}">
                 @csrf
@@ -93,7 +100,7 @@
                     </div>
                 </div>
 
-                <a href="{{ url('students') }}" class="mt-2 mb-5 btn btn-primary">
+                <a href="{{ url('students') }}" class="mt-2 mb-5 btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                          class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"

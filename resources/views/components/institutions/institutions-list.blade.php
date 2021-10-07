@@ -3,6 +3,12 @@
         <div class="col-12 p-4">
             <h1>Instituições</h1>
 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Instituições</li>
+                </ol>
+            </nav>
+
             @if ( session('status') )
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('status') }}

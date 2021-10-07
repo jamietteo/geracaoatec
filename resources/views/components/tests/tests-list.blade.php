@@ -1,8 +1,18 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
-            <h1>Lista de testes</h1><a href="{{ url('tests/create') }}" class="btn btn-primary btn-lg active"
-                                       role="button" aria-pressed="true">
+            <h1>Lista de testes</h1>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('groups') }}">Turmas</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Testes</li>
+
+                </ol>
+            </nav>
+
+            <a href="{{ url('tests/create') }}" class="btn btn-primary btn-lg active"
+               role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-plus-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -58,8 +68,17 @@
                     </tr>
                 @endforeach
 
+
                 </tbody>
             </table>
+
+            <a href="{{ url('groups') }}" class="mt-2 mb-5 btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                     class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                Voltar</a>
         </div>
     </div>
 </div>

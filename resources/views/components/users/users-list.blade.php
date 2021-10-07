@@ -1,7 +1,15 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
-            <h1>Lista de Colaboradores</h1><a href="{{url('register')}}" class="btn btn-primary btn-lg active"
+            <h1>Lista de Colaboradores</h1>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Colaboradores</li>
+                </ol>
+            </nav>
+
+            <a href="{{url('register')}}" class="btn btn-primary btn-lg active"
                                               role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-plus-circle" viewBox="0 0 16 16">
