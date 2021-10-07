@@ -17,8 +17,7 @@
                     <path
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
-                Criar turma</a>
-
+                Criar Turma</a>
 
             <a href="{{ url('tests') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
@@ -29,7 +28,7 @@
                 Lista de Testes</a>
 
             @if ( session('status') )
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
@@ -56,7 +55,7 @@
                             <td>{{$group->institution->zone}}</td>
                             <td class="text-center align-middle">
                                 <div class="pr-1">
-                                    <form action="{{ url('groups/' . $group->id) }}" method="POST">
+                                    <form action="{{ url('groups/' . $group->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar a turma {{$group->name}}?')">
                                         <a href="{{ url('groups/' . $group->id) }}" type="button"
                                            class="btn btn-success">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

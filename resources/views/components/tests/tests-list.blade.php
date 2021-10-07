@@ -22,7 +22,7 @@
                 Criar Teste</a>
 
             @if ( session('status') )
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
@@ -54,7 +54,7 @@
                         </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('tests/' . $test->id) }}" method="POST">
+                                <form action="{{ url('tests/' . $test->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar o teste número {{$test->id}}?')">
                                     <a href="{{ url('tests/' . $test->id) }}" type="button"
                                        class="btn btn-success">Show</a>
                                     <a href="{{ url('tests/' . $test->id . '/edit') }}" type="button"

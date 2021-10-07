@@ -10,7 +10,7 @@
             </nav>
 
             @if ( session('status') )
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
@@ -34,7 +34,7 @@
                         <td>{{$institution->zone}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('institutions/' . $institution->id) }}" method="POST">
+                                <form action="{{ url('institutions/' . $institution->id) }}" method="POST"  onsubmit="return confirm('Deseja eliminar a instituição de {{$institution->zone}}?')">
                                     <a href="{{ url('institutions/' . $institution->id) }}" type="button"
                                        class="btn btn-success">Show</a>
                                     <a href="{{ url('institutions/' . $institution->id . '/edit') }}" type="button"

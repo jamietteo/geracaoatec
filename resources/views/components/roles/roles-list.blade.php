@@ -10,7 +10,7 @@
             </nav>
 
             @if ( session('status') )
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
@@ -33,7 +33,7 @@
                         <td>{{$role->name}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('roles/' . $role->id) }}" method="POST">
+                                <form action="{{ url('roles/' . $role->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar o cargo {{$role->name}}?')">
                                     <a href="{{ url('roles/' . $role->id) }}" type="button"
                                        class="btn btn-success">Show</a>
                                     <a href="{{ url('roles/' . $role->id . '/edit') }}" type="button"
