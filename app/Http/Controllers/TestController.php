@@ -49,6 +49,7 @@ class TestController extends Controller
 
         $test = new Test();
         $test->date = $request->date;
+        $test->name = $request->name;
         $test->subject = $request->subject;
         $test->save();
         $test->groups()->attach($request->group_id);
@@ -91,8 +92,10 @@ class TestController extends Controller
     {
         $test = Test::find($test->id);
         $test->date = $request->date;
+        $test->name= $request->name;
         $test->subject = $request->subject;
         $test->groups()->sync($request->group_id);
+        $test->students()->updateExistingPivot($test, ['evaluation'=>$request->evaluation]);
         $test->save();
 
         return redirect('tests')->with('status', 'Teste atualizado com sucesso!');

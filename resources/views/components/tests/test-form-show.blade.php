@@ -5,7 +5,6 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('groups') }}">Turmas</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('tests') }}">Testes</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$test->id}}</li>
 
@@ -27,6 +26,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="name" class="font-weight-bold">Nome</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        readonly
+                        class="form-control"
+                        value="{{ $test->name }}">
+                </div>
+
+                <div class="form-group">
                     <label for="subject" class="font-weight-bold">Tema</label>
                     <input
                         type="text"
@@ -37,6 +47,17 @@
                         value="{{ $test->subject }}">
                 </div>
 
+                <div class="form-group">
+                    <label for="group_id" class="font-weight-bold">Turma</label>
+                    @foreach($test->groups as $group)
+                        <input
+                            name="group_id"
+                            id="group_id"
+                            readonly
+                            class="form-control"
+                            value="{{$group->name}}">
+                    @endforeach
+                </div>
 
                 <table class="table table-striped table-bordered m-4 mx-auto">
                     <thead>

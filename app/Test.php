@@ -10,7 +10,9 @@ class Test extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'date'
+        'date',
+        'name',
+        'subject'
     ];
 
     public function students(){

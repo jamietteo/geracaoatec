@@ -5,7 +5,6 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('groups') }}">Turmas</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('tests') }}">Testes</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Marcar Teste</li>
                 </ol>
@@ -27,7 +26,28 @@
                         required
                         aria-describedby="dateHelp">
 
-                    @error('date')
+                        @error('date')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="font-weight-bold">Nome</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        placeholder="Nome"
+                        class="form-control
+                        @error('name') is-invalid @enderror"
+                        value="{{ old('name') }}"
+                        required
+                        aria-describedby="nameHelp">
+
+                    @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
