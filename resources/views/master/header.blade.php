@@ -36,12 +36,6 @@
             <div class="sidebar-sticky pt-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">
-                            <span data-feather="bar-chart-2"></span>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('userForms') }}">
                             <span data-feather="file"></span>
                             Acompanhamento
@@ -50,7 +44,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('tests') }}">
                             <span data-feather="pie-chart"></span>
-                            Análise de Softskills
+                            Testes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('') }}">
+                            <span data-feather="bar-chart-2"></span>
+                            Análise SoftSkills
                         </a>
                     </li>
                     <li class="nav-item">
