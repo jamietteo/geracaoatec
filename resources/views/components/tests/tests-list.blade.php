@@ -54,7 +54,7 @@
                             <div class="pr-1">
                                 <form action="{{ url('tests/' . $test->id) }}" method="POST"
                                       onsubmit="return confirm('Deseja eliminar o teste número {{$test->id}}?')">
-                                    <a href="" type="button" class="btn btn-primary">
+                                    <a href="{{url('tests/insert/' . $test->id)}}" type="button" class="btn btn-primary">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                              fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                             <path

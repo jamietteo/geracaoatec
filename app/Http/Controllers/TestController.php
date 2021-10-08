@@ -81,6 +81,12 @@ class TestController extends Controller
         return view('pages.tests.edit', ['test' => $test, 'groups' => $groups]);
     }
 
+    public function insert(Test $test){
+        $groups = Group::all();
+
+        return view('pages.tests.insert', ['test' => $test, 'groups' => $groups]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
