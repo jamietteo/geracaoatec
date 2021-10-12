@@ -20,8 +20,4 @@ class Group extends Model
     public function students(){
         return $this->belongsToMany(Student::class);
     }
-
-    public function tests(){
-        return $this->belongsToMany(Test::class);
-    }
 }

@@ -76,22 +76,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="group" class="font-weight-bold">Turma</label>
+                    <label for="student" class="font-weight-bold">Aluno</label>
                     <div>
                         <select
-                            id="group_id"
-                            name="group_id"
+                            id="student_id"
+                            name="student_id"
                             class="form-select custom-select
-                            @error('group') is-invalid @enderror"
-                            aria-describedby="groupHelp">
+                            @error('student') is-invalid @enderror"
+                            aria-describedby="studentHelp">
 
-                            @foreach($groups as $group)
-                                <option value = " {{ $group->id }} ">
-                                    {{ $group->name }}
+                            @foreach($students as $student)
+                                <option value = " {{ $student->id }} ">
+                                    {{ $student->name }}
                                 </option>
                             @endforeach
 
-                            @error('group')
+                            @error('student')
                             <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('components.tests.test-form-create', ['groups' => $groups])
+    @component('components.tests.test-form-create', ['students' => $students])
     @endcomponent
 
 @endsection

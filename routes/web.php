@@ -22,8 +22,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('/');
 
-
-Route::get('tests/insert/{id}', 'TestController@insert');
 Route::resource('groups', 'GroupController');
 Route::resource('institutions', 'InstitutionController');
 Route::resource('roles', 'RoleController');

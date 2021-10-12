@@ -16,7 +16,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::with('students', 'groups')->simplePaginate(10);
+        $tests = Test::with('students')->simplePaginate(10);
 
         return view('pages.tests.index', ['tests' => $tests]);
     }
@@ -28,10 +28,9 @@ class TestController extends Controller
      */
     public function create()
     {
-        $groups = Group::all();
-        //$students = Student::all();
+        $students = Student::all();
 
-        return view('pages.tests.create', ['groups' => $groups]);
+        return view('pages.tests.create', ['students' => $students]);
     }
 
     /**
@@ -52,7 +51,6 @@ class TestController extends Controller
         $test->name = $request->name;
         $test->subject = $request->subject;
         $test->save();
-        $test->groups()->attach($request->group_id);
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
@@ -76,15 +74,9 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        $groups = Group::all();
+        $students = Student::all();
 
-        return view('pages.tests.edit', ['test' => $test, 'groups' => $groups]);
-    }
-
-    public function insert(Test $test){
-        $groups = Group::all();
-
-        return view('pages.tests.insert', ['test' => $test, 'groups' => $groups]);
+        return view('pages.tests.edit', ['test' => $test, 'students' => $students]);
     }
 
     /**
@@ -100,7 +92,7 @@ class TestController extends Controller
         $test->date = $request->date;
         $test->name= $request->name;
         $test->subject = $request->subject;
-        $test->groups()->sync($request->group_id);
+        $test->students()->sync($request->student_id);
         $test->students()->updateExistingPivot($test, ['evaluation'=>$request->evaluation]);
         $test->save();
 

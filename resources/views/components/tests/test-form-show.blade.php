@@ -48,14 +48,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="group_id" class="font-weight-bold">Turma</label>
-                    @foreach($test->groups as $group)
+                    <label for="student_id" class="font-weight-bold">Aluno</label>
+                    @foreach($test->students as $student)
                         <input
-                            name="group_id"
-                            id="group_id"
+                            name="student_id"
+                            id="student_id"
                             readonly
                             class="form-control"
-                            value="{{$group->name}}">
+                            value="{{$student->name}}">
                     @endforeach
                 </div>
 
