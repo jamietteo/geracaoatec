@@ -29,8 +29,9 @@ class TestController extends Controller
     public function create()
     {
         $students = Student::all();
+        $groups = Group::all();
 
-        return view('pages.tests.create', ['students' => $students]);
+        return view('pages.tests.create', ['students' => $students, 'groups' => $groups]);
     }
 
     /**
@@ -51,6 +52,7 @@ class TestController extends Controller
         $test->name = $request->name;
         $test->subject = $request->subject;
         $test->save();
+        $test->students()->attach($request->student_id);
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }

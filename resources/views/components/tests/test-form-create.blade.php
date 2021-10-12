@@ -76,28 +76,23 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="student" class="font-weight-bold">Aluno</label>
+                    <label for="student" class="font-weight-bold">Turma</label>
                     <div>
                         <select
-                            id="student_id"
-                            name="student_id"
-                            class="form-select custom-select
-                            @error('student') is-invalid @enderror"
-                            aria-describedby="studentHelp">
-
-                            @foreach($students as $student)
-                                <option value = " {{ $student->id }} ">
-                                    {{ $student->name }}
+                            class="form-control"
+                            multiple>
+                            @foreach($groups as $group)
+                                <option value = " {{ $group->id }} ">
+                                    {{ $group->name }}
                                 </option>
                             @endforeach
-
-                            @error('student')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
                         </select>
                     </div>
+                </div>
+
+                <div>
+                    <label for="student" class="font-weight-bold">Alunos</label>
+
                 </div>
 
                 <a href="{{ url('tests') }}" class="mt-2 mb-5 btn btn-secondary">
