@@ -83,7 +83,8 @@
                             name="group_id"
                             class="form-select custom-select
                             @error('group') is-invalid @enderror"
-                            aria-describedby="groupHelp">
+                            aria-describedby="groupHelp"
+                            multiple>
 
                             @foreach($groups as $group)
                                 <option value = " {{ $group->id }} ">

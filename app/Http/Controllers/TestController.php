@@ -52,7 +52,17 @@ class TestController extends Controller
         $test->name = $request->name;
         $test->subject = $request->subject;
         $test->save();
-        $test->students()->attach($request->student_id);
+
+        $students = Student::all();
+
+        foreach($students as $student)
+        {
+            foreach ($student->groups as $group)
+            {
+                if($group->id == $request->group_id)
+                    $test->students()->attach($student->id);
+            }
+        }
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
@@ -77,8 +87,9 @@ class TestController extends Controller
     public function edit(Test $test)
     {
         $students = Student::all();
+        $groups = Group::all();
 
-        return view('pages.tests.edit', ['test' => $test, 'students' => $students]);
+        return view('pages.tests.edit', ['test' => $test, 'students' => $students, 'groups' => $groups]);
     }
 
     /**
@@ -90,13 +101,37 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        $test = Test::find($test->id);
+        $students = Student::all();
+        //Post::whereRelation('comments', 'is_approved', false)->get();
+        //ddd($students);
+
+        //$test = Test::find($test->id);
         $test->date = $request->date;
         $test->name= $request->name;
         $test->subject = $request->subject;
-        $test->students()->sync($request->student_id);
-        $test->students()->updateExistingPivot($test, ['evaluation'=>$request->evaluation]);
         $test->save();
+
+        $array = [];
+        //ddd($test->students_test()->where('test_id', $test->id)->get());
+        foreach ($students as $student)
+        {
+            foreach ($student->groups as $group)
+            {
+                if($group->id == $request->group_id)
+                {
+                    //ddd($test->students()->sync($student->id));
+                    /*$test->students()->syncWithoutDetaching($student->id);
+                    $test->students()->updateExistingPivot($test, ['evaluation'=>$request->evaluation]);*/
+                    array_push($array, $student->id);
+
+                }
+            }
+        }
+
+
+        $test->students()->sync($array);
+        //ddd($array);
+
 
         return redirect('tests')->with('status', 'Teste atualizado com sucesso!');
     }

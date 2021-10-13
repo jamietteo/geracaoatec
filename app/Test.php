@@ -18,4 +18,9 @@ class Test extends Model
     public function students(){
         return $this->belongsToMany(Student::class)->withPivot('evaluation');
     }
+
+    /*public function students_test()
+    {
+        return $this->belongsToMany(Student::class)->withPivot('evaluation', 'test_id');
+    }*/
 }

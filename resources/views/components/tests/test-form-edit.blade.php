@@ -45,16 +45,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="student_id" class="font-weight-bold">Aluno</label>
+                    <label for="group_id" class="font-weight-bold">Turma</label>
                     <select
-                        name="student_id"
-                        id="student_id"
+                        name="group_id"
+                        id="group_id"
                         class="form-control">
-                        @foreach($test->students as $student)
-                            <option value="{{$group->id}}"
-                                    @if($test->student_id == $student->id)
-                                    selected
-                                @endif> {{$student->name}}</option>
+                        @foreach($groups as $group)
+                            <option value="{{$group->id}}">
+                                {{ $group->name }}
+                            </option>
                         @endforeach
                     </select>
                     @error('group')

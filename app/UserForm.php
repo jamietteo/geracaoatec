@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -14,14 +13,12 @@ class UserForm extends Model
         'periodicity'
     ];
 
-    public function students(){
+    public function student(){
         return $this->belongsTo(Student::class);
     }
-
-    public function technicians(){
-        return $this->belongsTo(Technician::class);
+    public function users(){
+        return $this->belongsTo(User::class);
     }
-
     public function sessions(){
         return $this->hasMany(Session::class);
     }

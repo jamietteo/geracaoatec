@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\User;
@@ -15,11 +14,10 @@ class UserFormController extends Controller
      */
     public function index()
     {
-        $userForms = UserForm::Paginate(10);
+        $userForms = UserForm::with('student')->Paginate(10);
 
         return view('pages.userForms.index', ['userForms' => $userForms]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +27,6 @@ class UserFormController extends Controller
     {
         return view('pages.userForms.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -49,7 +46,6 @@ class UserFormController extends Controller
 
         return redirect('userForms')->with('status', 'Ficha de Utente criada com sucesso!');
     }
-
     /**
      * Display the specified resource.
      *
@@ -60,7 +56,6 @@ class UserFormController extends Controller
     {
         return view('pages.userForms.show', ['userForm' => $userForm]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +66,6 @@ class UserFormController extends Controller
     {
         return view('pages.userForms.edit', ['userForm' => $userForm]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -88,7 +82,6 @@ class UserFormController extends Controller
 
         return redirect('userForms')->with('status', 'Ficha de Utente atualizada com sucesso!');
     }
-
     /**
      * Remove the specified resource from storage.
      *
