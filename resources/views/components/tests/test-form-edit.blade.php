@@ -51,9 +51,14 @@
                         id="group_id"
                         class="form-control">
                         @foreach($groups as $group)
-                            <option value="{{$group->id}}">
-                                {{ $group->name }}
-                            </option>
+                            <option value="{{$group->id}}"
+                                @foreach($test->students as $student)
+                                    @foreach($student->groups as $student_group)
+                                        @if($student_group->id == $group->id)
+                                            selected
+                                        @endif
+                                    @endforeach
+                                @endforeach> {{ $group->name }}</option>
                         @endforeach
                     </select>
                     @error('group')
