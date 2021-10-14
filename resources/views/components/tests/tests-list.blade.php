@@ -46,9 +46,7 @@
                         <td>{{$test->date}}</td>
                         <td>{{$test->subject}}</td>
                         <td>
-                            @foreach($students as $student)
-                                    {{$student->group->name}}
-                            @endforeach
+
                         </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
