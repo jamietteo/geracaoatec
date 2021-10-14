@@ -47,17 +47,7 @@
                         value="{{ $test->subject }}">
                 </div>
 
-                <div class="form-group">
-                    <label for="student_id" class="font-weight-bold">Aluno</label>
-                    @foreach($test->students as $student)
-                        <input
-                            name="student_id"
-                            id="student_id"
-                            readonly
-                            class="form-control"
-                            value="{{$student->name}}">
-                    @endforeach
-                </div>
+                <h1>Alunos</h1>
 
                 <table class="table table-striped table-bordered m-4 mx-auto">
                     <thead>
