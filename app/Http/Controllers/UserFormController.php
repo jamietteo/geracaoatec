@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Student;
 use App\User;
 use App\UserForm;
 use Illuminate\Http\Request;
@@ -25,7 +26,11 @@ class UserFormController extends Controller
      */
     public function create()
     {
-        return view('pages.userForms.create');
+        $userForms = UserForm::all();
+        $students  = Student::all();
+        $users  = User::all();
+
+        return view('pages.userForms.create',['userForms' => $userForms, 'students'=> $students, 'users' =>$users]);
     }
     /**
      * Store a newly created resource in storage.
@@ -36,13 +41,19 @@ class UserFormController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date' => 'required|date_format:DD/MM/YY'
+            'date' => 'required',
+            'periodicity' => 'required',
+            'student_id' => 'required',
+            'user_id' => 'required'
         ]);
 
         $userForm = new UserForm();
         $userForm->date = $request->date;
         $userForm->periodicity = $request->periodicity;
+        $userForm->student_id = $request->student_id;
+        $userForm->user_id = $request ->user_id;
         $userForm->save();
+        $userForm->student()->hasMacro($request->student_id);
 
         return redirect('userForms')->with('status', 'Ficha de Utente criada com sucesso!');
     }

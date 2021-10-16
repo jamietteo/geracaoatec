@@ -10,13 +10,15 @@ class UserForm extends Model
 
     protected $fillable = [
         'date',
-        'periodicity'
+        'periodicity',
+        'student_id',
+        'user_id'
     ];
 
     public function student(){
         return $this->belongsTo(Student::class);
     }
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
     public function sessions(){
