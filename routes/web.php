@@ -12,24 +12,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('/dashboard', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+
+Route::resource('dashboard', 'HomeController')->middleware('auth');
+Route::resource('groups', 'GroupController')->middleware('auth');
+Route::resource('institutions', 'InstitutionController')->middleware('auth');
+Route::resource('roles', 'RoleController')->middleware('auth');
+Route::resource('sessions', 'SessionController')->middleware('auth');
+Route::resource('students', 'StudentController')->middleware('auth');
+Route::resource('tests', 'TestController')->middleware('auth');
+Route::resource('users', 'UserController')->middleware('auth');
+Route::resource('userForms', 'UserFormController')->middleware('auth');
+
 
 Route::get('/', 'HomeController@index')->name('/');
 
-Route::resource('groups', 'GroupController');
-Route::resource('institutions', 'InstitutionController');
-Route::resource('roles', 'RoleController');
-Route::resource('sessions', 'SessionController');
-Route::resource('students', 'StudentController');
-Route::resource('tests', 'TestController');
-Route::resource('users', 'UserController');
-Route::resource('userForms', 'UserFormController');
+
+
 
 
 
