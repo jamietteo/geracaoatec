@@ -44,6 +44,7 @@ class TestController extends Controller
     {
         $this->validate($request, [
             'date' => 'required',
+            'name' => 'required',
             'subject' => 'required'
         ]);
 
@@ -109,7 +110,7 @@ class TestController extends Controller
         $test->date = $request->date;
         $test->name= $request->name;
         $test->subject = $request->subject;
-        $test->save();
+
 
         $array = [];
         //ddd($test->students_test()->where('test_id', $test->id)->get());
@@ -119,9 +120,10 @@ class TestController extends Controller
             {
                 if($group->id == $request->group_id)
                 {
+
                     //ddd($test->students()->sync($student->id));
-                    /*$test->students()->syncWithoutDetaching($student->id);
-                    $test->students()->updateExistingPivot($test, ['evaluation'=>$request->evaluation]);*/
+                    /*$test->students()->syncWithoutDetaching($student->id);*/
+                    $test->students()->updateExistingPivot($student, ['evaluation'=>$request->evaluation[$student->id]]);
                     array_push($array, $student->id);
 
                 }
@@ -130,6 +132,7 @@ class TestController extends Controller
 
 
         $test->students()->sync($array);
+        $test->save();
         //ddd($array);
 
 
