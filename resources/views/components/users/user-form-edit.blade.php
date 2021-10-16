@@ -56,7 +56,9 @@
                                         @if($user_role->id == $role->id)
                                             selected
                                         @endif
-                                    @endforeach> {{$role->name}}</option>
+                                    @endforeach>
+                                {{$role->name}}
+                            </option>
                         @endforeach
                     </select>
                 </div>

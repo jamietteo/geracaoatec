@@ -45,7 +45,7 @@ class RoleController extends Controller
         $roles->name = $request->name;
         $roles->save();
 
-        return  redirect('roles')->with('status', 'Role criada com sucesso!');
+        return  redirect('roles')->with('status', 'Cargo criada com sucesso!');
     }
 
     /**
@@ -81,8 +81,9 @@ class RoleController extends Controller
     {
         $role       = Role::find($role->id);
         $role->name = $request->name;
+        $role->save();
 
-        return redirect('roles')->with('status', 'Role atualizada com sucesso!');
+        return redirect('roles')->with('status', 'Cargo atualizada com sucesso!');
     }
 
     /**
