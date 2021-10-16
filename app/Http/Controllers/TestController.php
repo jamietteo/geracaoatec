@@ -110,7 +110,7 @@ class TestController extends Controller
         $test->date = $request->date;
         $test->name= $request->name;
         $test->subject = $request->subject;
-        $test->save();
+
 
         $array = [];
         //ddd($test->students_test()->where('test_id', $test->id)->get());
@@ -120,6 +120,7 @@ class TestController extends Controller
             {
                 if($group->id == $request->group_id)
                 {
+
                     //ddd($test->students()->sync($student->id));
                     /*$test->students()->syncWithoutDetaching($student->id);*/
                     $test->students()->updateExistingPivot($student, ['evaluation'=>$request->evaluation[$student->id]]);

@@ -90,7 +90,7 @@
                                 <input
                                     type="text"
                                     id="evaluation"
-                                    name="evaluation"
+                                    name="evaluation[{{$student->id}}]"
                                     class="form-control"
                                     value="{{ $student->pivot->evaluation }}">
                             </td>
