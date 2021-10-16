@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('components.userForms.userForm-form-edit', ['userForms' => $userForms])
+    @component('components.userForms.userForm-form-edit', ['userForm' => $userForm, 'students'=> $students, 'users'=>$users])
     @endcomponent
 
 @endsection

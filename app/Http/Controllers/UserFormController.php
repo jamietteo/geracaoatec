@@ -65,7 +65,10 @@ class UserFormController extends Controller
      */
     public function show(UserForm $userForm)
     {
-        return view('pages.userForms.show', ['userForm' => $userForm]);
+        $students  = Student::all();
+        $users  = User::all();
+
+        return view('pages.userForms.show', ['userForm' => $userForm, 'students'=> $students, 'users' =>$users]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +78,10 @@ class UserFormController extends Controller
      */
     public function edit(UserForm $userForm)
     {
-        return view('pages.userForms.edit', ['userForm' => $userForm]);
+        $students  = Student::all();
+        $users  = User::all();
+
+        return view('pages.userForms.edit', ['userForm' => $userForm, 'students'=> $students, 'users' =>$users]);
     }
     /**
      * Update the specified resource in storage.
