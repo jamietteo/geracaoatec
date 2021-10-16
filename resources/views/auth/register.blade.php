@@ -57,7 +57,13 @@
                             <label for="institution_id" class="col-md-4 col-form-label text-md-right">{{ __('Instituicao') }}</label>
 
                             <div class="col-md-6">
-                                <input id="institution_id" type="text" class="form-control @error('institution_id') is-invalid @enderror" name="institution_id" value="{{ old('institution_id') }}" required autocomplete="institution_id">
+                                <select class="form-control" name="institution_id">
+                                    @foreach($institutions as $institution)
+                                        <option value="{{ $institution->id}}">
+                                            {{$institution->zone}}
+                                        </option>
+                                    @endforeach
+                                </select>
 
                                 @error('institution_id')
                                 <span class="invalid-feedback" role="alert">
@@ -66,6 +72,8 @@
                                 @enderror
                             </div>
                         </div>
+
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
