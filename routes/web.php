@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+//Login
+Route::get('/', 'HomeController@index')->name('/');
 
+//other routes
 Route::resource('dashboard', 'HomeController')->middleware('auth');
 Route::resource('groups', 'GroupController')->middleware('auth');
 Route::resource('institutions', 'InstitutionController')->middleware('auth');
@@ -24,10 +27,6 @@ Route::resource('students', 'StudentController')->middleware('auth');
 Route::resource('tests', 'TestController')->middleware('auth');
 Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('userForms', 'UserFormController')->middleware('auth');
-
-
-Route::get('/', 'HomeController@index')->name('/');
-
 
 
 
