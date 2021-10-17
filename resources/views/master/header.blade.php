@@ -71,6 +71,12 @@
                             Colaboradores
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('roles') }}">
+                            <span data-feather="anchor"></span>
+                            Cargos
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
