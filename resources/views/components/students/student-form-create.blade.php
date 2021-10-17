@@ -80,7 +80,7 @@
                     <div>
                         <select
                             id="group_id"
-                            name="group_id"
+                            name="group_id[]"
                             class="form-select custom-select
                             @error('group') is-invalid @enderror"
                             aria-describedby="groupHelp"

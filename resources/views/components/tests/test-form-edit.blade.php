@@ -68,6 +68,11 @@
                     @enderror
                 </div>
 
+                <div class="form-group">
+                    <input type="checkbox" aria-label="Checkbox for following text input" onchange="Inserir()">
+                    <label class="font-weight-bold">Inserir notas</label>
+                </div>
+
                 <table class="table table-striped table-bordered m-4 mx-auto">
                     <thead>
                     <tr class="text-center">
@@ -88,6 +93,7 @@
 
                             <td>
                                 <input
+                                    readonly
                                     type="text"
                                     id="evaluation"
                                     name="evaluation[{{$student->id}}]"
@@ -121,3 +127,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    function Inserir()
+    {
+        //console.log(document.querySelectorAll('#evaluation'))
+        var i = 0;
+        for(i<0; i<=document.querySelectorAll('#evaluation').length; i++)
+            //if(!document.querySelectorAll('#evaluation')[i].removeAttribute('readonly'))
+            document.querySelectorAll('#evaluation')[i].removeAttribute('readonly');
+    }
+</script>

@@ -48,7 +48,7 @@
                         <td>
                             @if(sizeof($student->groups) > 0)
                                 @foreach($student->groups as $group)
-                                    {{$group->name}}
+                                    {{$group->name}}<br>
                                 @endforeach
                             @else
                                 Sem Turma
