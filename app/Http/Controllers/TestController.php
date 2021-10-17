@@ -111,7 +111,13 @@ class TestController extends Controller
         $test->name= $request->name;
         $test->subject = $request->subject;
 
-
+        foreach ($test->students as $student)
+        {
+            foreach ($student->groups as $group)
+            {
+                $var = $group->id;
+            }
+        };
         $array = [];
         //ddd($test->students_test()->where('test_id', $test->id)->get());
         foreach ($students as $student)
@@ -123,13 +129,15 @@ class TestController extends Controller
 
                     //ddd($test->students()->sync($student->id));
                     /*$test->students()->syncWithoutDetaching($student->id);*/
-                    $test->students()->updateExistingPivot($student, ['evaluation'=>$request->evaluation[$student->id]]);
-                    array_push($array, $student->id);
+                    if($var == $request->group_id)
+                    {
+                        $test->students()->updateExistingPivot($student, ['evaluation'=>$request->evaluation[$student->id]]);
+                    }
 
+                    array_push($array, $student->id);
                 }
             }
         }
-
 
         $test->students()->sync($array);
         $test->save();
