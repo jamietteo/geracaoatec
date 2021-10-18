@@ -42,6 +42,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('sessions') }}">
+                            <span data-feather="activity"></span>
+                            Sessões
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('tests') }}">
                             <span data-feather="pie-chart"></span>
                             Testes

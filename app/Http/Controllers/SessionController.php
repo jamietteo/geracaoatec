@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Session;
+use App\UserForm;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
@@ -26,7 +27,10 @@ class SessionController extends Controller
      */
     public function create()
     {
-        return view('pages.students.create');
+        $sessions = Session::all();
+        $userForms = UserForm::all();
+
+        return view('pages.sessions.create',['sessions' => $sessions, 'userForms' => $userForms]);
     }
 
     /**
@@ -38,10 +42,13 @@ class SessionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'begin_time' => 'required|date_format:DD/MM/YY'
+            'user_forms_id' => 'required',
+            'begin_time' => 'required',
+            'comments' => 'required'
         ]);
 
         $session = new Session();
+        $session->user_forms_id = $request->user_forms_id;
         $session->begin_time = $request->begin_time;
         $session->comments = $request->comments;
         $session->save();
