@@ -14,6 +14,28 @@
                 @csrf
                 @method('PUT')
 
+
+                <div class="form-group">
+                    <label for="user_id" class="font-weight-bold">Colaborador</label>
+                    <select
+                        id="user_id"
+                        name="user_id"
+                        class="form-control">
+                        @foreach($users as $user)
+                            <option value="{{$user->id}}"
+                                    @foreach($userForm->user as $userForm_user)
+                                    selected
+                                @endforeach>{{$user->name}}</option>
+                        @endforeach
+                    </select>
+                    @error('user')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+
                 <div class="form-group">
                     <label for="date" class="font-weight-bold">Data</label>
                     <input

@@ -53,7 +53,7 @@ class UserFormController extends Controller
         $userForm->student_id = $request->student_id;
         $userForm->user_id = $request ->user_id;
         $userForm->save();
-        $userForm->student()->hasMacro($request->student_id);
+        //$userForm->student()->hasMacro($request->student_id);
 
         return redirect('userForms')->with('status', 'Ficha de Utente criada com sucesso!');
     }
@@ -92,9 +92,13 @@ class UserFormController extends Controller
      */
     public function update(Request $request, UserForm $userForm)
     {
+        //$user = User::all();
         $userForm = UserForm::find($userForm->id);
+        $userForm->user_id = $request->user_id;
         $userForm->date = $request->date;
         $userForm->periodicity = $request->periodicity;
+        //$userForm->user()->hasMacro($request->user_id);
+
         $userForm->save();
 
         return redirect('userForms')->with('status', 'Ficha de Utente atualizada com sucesso!');

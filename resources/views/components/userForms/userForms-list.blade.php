@@ -31,6 +31,7 @@
                 <thead>
                 <tr class="text-center">
                     <th scope="col">#</th>
+                    <th scope="col">Colaborador</th>
                     <th scope="col">Utente</th>
                     <th scope="col">Data</th>
                     <th scope="col">Periodicidade</th>
@@ -40,7 +41,8 @@
                 @foreach($userForms as $userForm)
                     <tr class="text-center">
                         <th scope="row">{{$userForm->id}}</th>
-                        <td scope="row">{{$userForm->student->name}}</td>
+                        <th scope="row">{{$userForm->user->name}}</th>
+                        <td>{{$userForm->student->name}}</td>
                         <td>{{$userForm->date}}</td>
                         <td>{{$userForm->periodicity}}</td>
                         <td class="text-center align-middle">
