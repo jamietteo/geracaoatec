@@ -47,12 +47,14 @@
                             name="student_id"
                             class="form-select custom-select
                             @error('student') is-invalid @enderror"
-                            aria-describedby="studentHelp"
-                            multiple>
+                            aria-describedby="studentHelp">
 
                             @foreach($students as $student)
                                 <option value=" {{ $student->id }} ">
-                                    {{ $student->name }}
+                                    {{$student->atec_number}} {{ $student->name }}
+                                    @foreach($student->groups as $group)
+                                        {{$group->name}}
+                                    @endforeach
                                 </option>
                             @endforeach
 
