@@ -123,7 +123,7 @@
                 <div class="form-group">
                     <label for="password" class="font-weight-bold">Password</label>
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         name="password"
                         autocomplete="password"
