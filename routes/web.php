@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('/');
 
 //other routes
+Route::view('/homePage', 'homePage');
 Route::resource('dashboard', 'HomeController')->middleware('auth');
 Route::resource('groups', 'GroupController')->middleware('auth');
 Route::resource('institutions', 'InstitutionController')->middleware('auth');

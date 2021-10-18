@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{url('/')}}"><img src = "{{ asset('images/atec_logo.png') }}"></a>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/homePage"><img src = "{{ asset('images/atec_logo.png') }}"></a>
     <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -79,7 +79,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('roles') }}">
-                            <span data-feather="anchor"></span>
+                            <span data-feather="award"></span>
                             Cargos
                         </a>
                     </li>
