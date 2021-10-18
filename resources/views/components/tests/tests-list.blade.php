@@ -55,7 +55,8 @@
                         </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('tests/' . $test->id) }}" method="POST">
+                                <form action="{{ url('tests/' . $test->id) }}" method="POST"
+                                      onsubmit="return confirm('Deseja eliminar o teste número {{$test->id}}?')">
                                     <a href="{{ url('tests/' . $test->id) }}" type="button"
                                        class="btn btn-success">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -76,7 +77,7 @@
                                         Inserir Notas</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="deleteConfirmation({{$user->id}})">
+                                    <button type="submit" class="btn btn-danger">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                              fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                             <path
@@ -92,7 +93,6 @@
                     </tr>
                 @endforeach
 
-
                 </tbody>
             </table>
 
@@ -106,43 +106,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    function deleteConfirmation(id) {
-        swal({
-            title: "Delete?",
-            text: "Please ensure and then confirm!",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
-            reverseButtons: !0
-        }).then(function (e) {
-
-            if (e.value === true) {
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-                $.ajax({
-                    type: 'POST',
-                    url: "{{url('/delete')}}/" + id,
-                    data: {_token: CSRF_TOKEN},
-                    dataType: 'JSON',
-                    success: function (results) {
-
-                        if (results.success === true) {
-                            swal("Done!", results.message, "success");
-                        } else {
-                            swal("Error!", results.message, "error");
-                        }
-                    }
-                });
-
-            } else {
-                e.dismiss;
-            }
-
-        }, function (dismiss) {
-            return false;
-        })
-    }
-</script>

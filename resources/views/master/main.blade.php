@@ -19,8 +19,6 @@
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
-
 </head>
 
 <body>
@@ -43,9 +41,6 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="{{ asset('js/dashboard.js') }}" defer></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
 </body>
 </html>
