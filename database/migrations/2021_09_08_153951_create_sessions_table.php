@@ -14,7 +14,7 @@ class CreateSessionsTable extends Migration
     public function up()
     {
         Schema::create('sessions', function (Blueprint $table) {
-            $table->id('session_number');
+            $table->id();
             $table->foreignId('user_forms_id')->constrained()->onDelete('cascade');
             $table->dateTime('begin_time');
             $table->string('comments');

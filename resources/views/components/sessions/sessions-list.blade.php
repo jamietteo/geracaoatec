@@ -42,13 +42,14 @@
 
                 @foreach($sessions as $session)
                     <tr class="text-center">
-                        <th scope="row">{{$session->session_number}}</th>
+                        <th scope="row">{{$session->id}}</th>
                         <td>{{$session->user_forms_id}}</td>
                         <td>{{$session->comments}}</td>
                         <td>{{$session->begin_time}}</td>
                         <td class="text-center align-middle">
                             <div class="pr-1">
-                                <form action="{{ url('sessions/' . $session->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar a sessão número {{$session->id}}?')">
+                                <form action="{{ url('sessions/' . $session->id) }}" method="POST"
+                                      onsubmit="return confirm('Deseja eliminar a sessão número {{$session->id}}?')">
                                     <a href="{{ url('sessions/' . $session->id) }}" type="button"
                                        class="btn btn-success">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
