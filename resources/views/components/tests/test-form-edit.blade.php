@@ -135,6 +135,6 @@
         var i = 0;
         for(i<0; i<=document.querySelectorAll('#evaluation').length; i++)
             //if(!document.querySelectorAll('#evaluation')[i].removeAttribute('readonly'))
-            document.querySelectorAll('#evaluation')[i].removeAttribute('readonly');
+            document.querySelectorAll('#evaluation')[i].removeAttribute('readonly')
     }
 </script>

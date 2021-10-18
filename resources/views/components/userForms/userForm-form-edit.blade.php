@@ -43,7 +43,7 @@
                         id="date"
                         name="date"
                         class="form-control"
-                        value=" {{ $userForm->date }}">
+                        value="{{ $userForm->date }}">
                 </div>
 
                 <div class="form-group">

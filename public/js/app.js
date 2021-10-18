@@ -50006,8 +50006,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\T0119178\Desktop\Projeto\geracaoatec\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\T0119178\Desktop\Projeto\geracaoatec\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\t0119163\Desktop\geracaoatec\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\t0119163\Desktop\geracaoatec\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> d44a7313369033eaec34ef1273fc33e93baa7cb1
 
 
 /***/ })
