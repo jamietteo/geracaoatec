@@ -3,14 +3,16 @@
     <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-secondary btn-sm">Logout</button>
-            </form>
-        </li>
-    </ul>
+    @if(Auth::user())
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-secondary btn-sm">Logout</button>
+                </form>
+            </li>
+        </ul>
+    @endif
 </nav>
 
 <div class="container-fluid">
