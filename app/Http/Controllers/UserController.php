@@ -44,17 +44,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'           => 'required',
             'atec_number'    => 'required',
+            'name'           => 'required',
             'email'          => 'required',
-            'institution_id' => 'required'
+            'institution_id' => 'required',
+            'role_id' => 'required',
+            'password' => 'required',
         ]);
 
         $user = new User();
-        $user->name = $request->name;
         $user->atec_number = $request->atec_number;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->institution_id = $request->institution_id;
+        $user->roles()->role_id = $request->role_id;
+        $user->password = bcrypt($request['password']);
 
         $user->save();
         $user->roles()->attach($request->role_id);

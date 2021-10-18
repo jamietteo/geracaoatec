@@ -25,7 +25,6 @@
             @if(!Auth::user())
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
             @endif
-
         </li>
     </ul>
 </nav>

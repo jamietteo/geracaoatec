@@ -64,7 +64,9 @@ class SessionController extends Controller
      */
     public function show(Session $session)
     {
-        return view('pages.students.show', ['session' => $session]);
+        $userForms = UserForm::all();
+
+        return view('pages.sessions.show', ['session' => $session, 'userForms' => $userForms]);
     }
 
     /**
@@ -75,7 +77,9 @@ class SessionController extends Controller
      */
     public function edit(Session $session)
     {
-        return view('pages.students.edit', ['session' => $session]);
+        $userForms = UserForm::all();
+
+        return view('pages.sessions.edit', ['session' => $session, 'userForms' => $userForms]);
     }
 
     /**
