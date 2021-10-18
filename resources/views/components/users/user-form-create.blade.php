@@ -26,6 +26,7 @@
                     @enderror
                 </div>
 
+
                 <div class="form-group">
                     <label for="name" class="font-weight-bold">Nome</label>
                     <input
@@ -41,6 +42,28 @@
                         aria-describedby="nameHelp">
 
                     @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="Email"
+                        class="form-control
+                        @error('email') is-invalid @enderror"
+                        value="{{ old('email') }}"
+                        required
+                        aria-describedby="emailHelp">
+
+                    @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

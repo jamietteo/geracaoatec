@@ -9,7 +9,7 @@
                 </ol>
             </nav>
 
-            <a href="{{url('register')}}" class="btn btn-primary btn-lg active"
+            <a href="{{url('users/create')}}" class="btn btn-primary btn-lg active"
                                               role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-plus-circle" viewBox="0 0 16 16">
