@@ -35,6 +35,7 @@
                     <th scope="col">Utente</th>
                     <th scope="col">Data</th>
                     <th scope="col">Periodicidade</th>
+                    <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
