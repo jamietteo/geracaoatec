@@ -98,6 +98,6 @@ class InstitutionController extends Controller
         $institution->groups()->delete();
         $institution->delete();
 
-        return redirect('institutions')->with('status', 'Instituição liminada com sucesso!');
+        return redirect('institutions')->with('status', 'Instituição eliminada com sucesso!');
     }
 }
