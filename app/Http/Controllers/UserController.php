@@ -63,7 +63,7 @@ class UserController extends Controller
         $user->save();
         $user->roles()->attach($request->role_id);
 
-        return redirect('users')->with('status', 'User criado com sucesso!');
+        return redirect('users')->with('status', 'Colaborador criado com sucesso!');
     }
 
     /**
@@ -109,7 +109,7 @@ class UserController extends Controller
         $user->roles()->sync($request->role_id);
         $user->save();
 
-        return redirect('users')->with('status','User edited successfully!');
+        return redirect('users')->with('status','Colaborador editado com sucesso!');
     }
 
     /**
@@ -122,6 +122,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect('users')->with('status', 'User eliminado com sucesso!');
+        return redirect('users')->with('status', 'Colaborador eliminado com sucesso!');
     }
 }
