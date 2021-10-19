@@ -4,9 +4,9 @@
 
     <h1 class="text-center pt-5">Olá {{Auth::user()->name}}!</h1>
 
-<div class=" p-5">
+<div class="p-5">
     <div class="row p-5">
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('userForms') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -19,7 +19,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('sessions') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -32,7 +32,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('tests') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -45,7 +45,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="row p-5">
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('groups') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -73,7 +73,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('students') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -86,7 +86,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('users') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
@@ -99,7 +99,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xs-4 text-center">
             <a class="text-decoration-none text-light" href="{{ url('roles') }}">
                 <div class="card bg-dark border border-primary h-100">
                     <div class="card-body">
