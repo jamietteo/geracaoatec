@@ -62,6 +62,7 @@
                         type="email"
                         id="email"
                         name="email"
+                        pattern="[a-zA-Z]+[.]+[a-zA-Z]+(.[/\d/]+@|@)+edu.atec.pt"
                         autocomplete="email"
                         placeholder="Email"
                         class="form-control

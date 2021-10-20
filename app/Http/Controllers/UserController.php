@@ -46,7 +46,7 @@ class UserController extends Controller
         $this->validate($request, [
             'atec_number'    => 'required',
             'name'           => 'required',
-            'email'          => 'required|regex:/^[a-zA-Z]+.[a-zA-Z]+.[0-9]+@edu.atec.pt/',
+            'email'          => 'required',
             'institution_id' => 'required',
             'role_id' => 'required',
             'password' => 'required',
