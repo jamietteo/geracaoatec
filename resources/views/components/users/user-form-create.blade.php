@@ -1,7 +1,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 p-4">
-            <h1>Adicionar Colaborador</h1>
+            <h1>Criar Colaborador</h1>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('users') }}">Colaborador</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Criar Colaborador</li>
+                </ol>
+            </nav>
 
             <form method="POST" action="{{ url('users') }}">
                 @csrf
@@ -34,7 +41,7 @@
                         id="name"
                         name="name"
                         autocomplete="name"
-                        placeholder="Nome do técnico"
+                        placeholder="Nome do colaborador"
                         class="form-control
                         @error('name') is-invalid @enderror"
                         value="{{ old('name') }}"

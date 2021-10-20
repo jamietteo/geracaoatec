@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
-            <h1>Lista de cargos</h1>
+            <h1>Lista de Cargos</h1>
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
