@@ -108,6 +108,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/consoletvs/charts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/chartisan/php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

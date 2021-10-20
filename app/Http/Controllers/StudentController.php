@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Student;
+use App\Test;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -67,7 +68,6 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-
         return view('pages.students.show', ['student' => $student]);
     }
 

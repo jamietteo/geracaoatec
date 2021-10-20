@@ -62,9 +62,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        $students = Student::all();
-
-        return view('pages.groups.show', ['group' => $group, 'students' => $students]);
+        return view('pages.groups.show', ['group' => $group]);
     }
 
     /**
