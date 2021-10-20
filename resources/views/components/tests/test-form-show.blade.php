@@ -67,8 +67,11 @@
                             @foreach($student->groups as $group)
                                 <td>{{$group->name}}</td>
                             @endforeach
-
-                            <td>{{$student->pivot->evaluation}}</td>
+                            @if($student->pivot->evaluation < 9.5)
+                                <td class="text-danger">{{$student->pivot->evaluation}}</td>
+                            @else
+                                <td class="text-success">{{$student->pivot->evaluation}}</td>
+                            @endif
                             <td class="text-center align-middle">
                                 <div class="pr-1">
                                     <form action="{{ url('students/' . $student->id) }}" method="POST">
