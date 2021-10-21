@@ -18,11 +18,8 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index')->name('/');
 
 //other routes
-<<<<<<< HEAD
 Route::view('/home', 'homePage')->middleware('roles');
-=======
 Route::view('home', 'homePage')->middleware('auth');
->>>>>>> bb5152607538b18933daa79f04acfe3795b42c47
 Route::resource('dashboard', 'HomeController')->middleware('auth');
 Route::resource('groups', 'GroupController')->middleware('auth');
 Route::resource('institutions', 'InstitutionController')->middleware('auth');
