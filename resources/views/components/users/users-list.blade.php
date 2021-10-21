@@ -9,6 +9,7 @@
                 </ol>
             </nav>
 
+            @if(Auth::user()->role_id == '1')
             <a href="{{url('users/create')}}" class="btn btn-primary btn-lg active"
                                               role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -18,14 +19,25 @@
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
                 Criar Colaborador</a>
+            @endif
 
-            @if ( session('status') )
+
+            @if ( session('status'))
                 <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
                     </button>
                 </div>
+            @else
+                @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-3" role="alert">
+                        {{ session()->get('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                    @endif
             @endif
 
             <table class="table table-striped table-bordered m-4 mx-auto">
@@ -69,6 +81,7 @@
                                                 d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                                         </svg>
                                         Editar</a>
+                                    @if(Auth::user()->role_id == '1')
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">
@@ -81,6 +94,7 @@
                                         </svg>
                                         Apagar
                                     </button>
+                                        @endif
 
                                 </form>
                             </div>

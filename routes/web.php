@@ -18,7 +18,7 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index')->name('/');
 
 //other routes
-Route::view('/home', 'homePage')->middleware('roles');
+Route::view('/home', 'homePage')->middleware('auth');
 Route::view('home', 'homePage')->middleware('auth');
 Route::resource('dashboard', 'HomeController')->middleware('auth');
 Route::resource('groups', 'GroupController')->middleware('auth');
@@ -27,8 +27,17 @@ Route::resource('roles', 'RoleController')->middleware('auth');
 Route::resource('sessions', 'SessionController')->middleware('auth');
 Route::resource('students', 'StudentController')->middleware('auth');
 Route::resource('tests', 'TestController')->middleware('auth');
-Route::resource('users', 'UserController');
 Route::resource('userForms', 'UserFormController')->middleware('auth');
+
+Route::prefix('users')->group(function(){
+    Route::get('', 'UserController@index')->middleware('auth');
+    Route::get('create', 'UserController@create')->middleware('gestor');
+    Route::post('', 'UserController@store')->middleware('auth');
+    Route::get('{user}', 'UserController@show')->middleware('auth');
+    Route::get('{user}/edit', 'UserController@edit')->middleware('auth');
+    Route::put('{user}', 'UserController@update')->middleware('auth');
+    Route::delete('{user}', 'UserController@destroy')->middleware('gestor');
+});
 
 
 
