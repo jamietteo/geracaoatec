@@ -3,6 +3,13 @@
         <div class="col-12 p-4">
             <h1>Criar Cargo</h1>
 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('roles') }}">Cargos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Criar Cargos</li>
+                </ol>
+            </nav>
+
             <form method="POST" action="{{ url('roles') }}">
                 @csrf
 

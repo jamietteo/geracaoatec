@@ -14,7 +14,6 @@
                 @csrf
                 @method('PUT')
 
-
                 <div class="form-group">
                     <label for="user_id" class="font-weight-bold">Colaborador</label>
                     <select
@@ -23,9 +22,9 @@
                         class="form-control">
                         @foreach($users as $user)
                             <option value="{{$user->id}}"
-                                    @foreach($userForm->user as $userForm_user)
+                                    @if($user->userForm_id == $user->id)
                                     selected
-                                @endforeach>{{$user->name}}</option>
+                                @endif>{{$user->name}}</option>
                         @endforeach
                     </select>
                     @error('user')

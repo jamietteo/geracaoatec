@@ -15,7 +15,7 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="atec_number" class="font-weight-bold">Nr Atec</label>
+                    <label for="atec_number" class="font-weight-bold">Número da atec</label>
                     <input
                         type="text"
                         id="atec_number"

@@ -5,8 +5,8 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('sessions') }}">Fichas de Utente</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Criar Ficha de Utente</li>
+                    <li class="breadcrumb-item"><a href="{{ url('sessions') }}">Sessões</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Criar Sessão</li>
                 </ol>
             </nav>
 

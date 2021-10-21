@@ -35,7 +35,6 @@
                         value="{{ $group->institution->zone }}">
                 </div>
 
-
             </form>
 
             @if(sizeof($group->students) > 0)

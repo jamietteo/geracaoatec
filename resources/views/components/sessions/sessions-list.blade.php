@@ -35,7 +35,7 @@
                     <th scope="col">Nº Ficha de Utente</th>
                     <th scope="col">Comentários</th>
                     <th scope="col">Data</th>
-
+                    <th scope="col">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
