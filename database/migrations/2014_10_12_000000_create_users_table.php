@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('atec_number')->unique();
             $table->string('password');
             $table->foreignId('institution_id')->constrained()->onDelete('cascade');
+            $table->foreignId('role_id')->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

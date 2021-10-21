@@ -17,7 +17,7 @@ class Roles
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::user()->roles()->role_id == '1'){
+        if(\Auth::user()->role_id == '1'){
             return $next($request);
         }
     }

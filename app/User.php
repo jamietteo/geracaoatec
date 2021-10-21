@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','atec_number', 'password', 'institution_id'
+        'name', 'email','atec_number', 'password', 'institution_id', 'role_id'
     ];
 
     /**
@@ -38,9 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles(){
-        return $this->belongsToMany(Role::class)
-            ->withTimestamps();
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 
     public function institution(){

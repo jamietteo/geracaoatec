@@ -46,9 +46,7 @@
                         <td>{{$user->atec_number}}</td>
                         <td>{{$user->name}}</td>
                         <td>
-                            @foreach($user->roles as $role)
-                                {{ $role->name }}
-                            @endforeach
+                                {{ $user->role->name }}
                         </td>
                         <td class="text-center align-middle">
                             <div class="pr-1">

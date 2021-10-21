@@ -57,11 +57,10 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->institution_id = $request->institution_id;
-        $user->roles()->role_id = $request->role_id;
+        $user->role_id = $request->role_id;
         $user->password = bcrypt($request['password']);
 
         $user->save();
-        $user->roles()->attach($request->role_id);
 
         return redirect('users')->with('status', 'User criado com sucesso!');
     }
@@ -106,7 +105,7 @@ class UserController extends Controller
         $user->atec_number    = $request->atec_number;
         $user->email          = $request->email;
         $user->institution_id = $request->institution_id;
-        $user->roles()->sync($request->role_id);
+        $user->role_id        = $request->role_id;
         $user->save();
 
         return redirect('users')->with('status','User edited successfully!');

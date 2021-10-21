@@ -52,13 +52,9 @@
                         class="form-control">
                         @foreach($roles as $role)
                             <option value="{{$role->id}}"
-                                    @foreach($user->roles as $user_role)
-                                        @if($user_role->id == $role->id)
-                                            selected
-                                        @endif
-                                    @endforeach>
-                                {{$role->name}}
-                            </option>
+                                    @if($user->role_id == $role->id)
+                                    selected
+                                @endif> {{$role->name}}</option>
                         @endforeach
                     </select>
                 </div>

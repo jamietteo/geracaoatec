@@ -67,10 +67,9 @@
                         name="role"
                         readonly
                         class="form-control"
-                        @foreach($user->roles as $role)
-                            value="{{$role->name}}"
-                        @endforeach
-                    >
+                        @if(!is_null($user->role))
+                        value="{{ $user->role->name }}"
+                        @endif>
                 </div>
 
                 <a href="{{ url('users') }}" class="mt-2 mb-5 btn btn-secondary">
