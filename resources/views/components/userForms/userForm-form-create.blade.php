@@ -67,8 +67,6 @@
                     </div>
                 </div>
 
-                <form method="POST" action="{{ url('userForm') }}">
-                    @csrf
                     <div class="form-group">
                         <label for="date" class="font-weight-bold">Data</label>
                         <input
@@ -132,3 +130,4 @@
         </div>
     </div>
 </div>
+
