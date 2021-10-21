@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="forgim-group">
+                <div class="form-group">
                     <label for="group" class="font-weight-bold">Alunos</label>
                     <div>
                         <select
@@ -51,7 +51,7 @@
 
                             @foreach($students as $student)
                                 <option value=" {{ $student->id }} ">
-                                    {{$student->atec_number}} {{ $student->name }}
+                                    {{$student->atec_number}} - {{ $student->name }} -
                                     @foreach($student->groups as $group)
                                         {{$group->name}}
                                     @endforeach

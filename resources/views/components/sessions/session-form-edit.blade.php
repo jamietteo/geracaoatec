@@ -25,6 +25,7 @@
                         value="{{$session->comments}}">
                 </div>
 
+
                 <div class="form-group">
                     <label for="begin_time" class="font-weight-bold">Data</label>
                     <input
@@ -32,7 +33,7 @@
                         id="begin_time"
                         name="begin_time"
                         class="form-control"
-                        value="{{ $session->begin_time }}">
+                        value="{{ date('Y-m-d\TH:i', strtotime($session->begin_time)) }}">
                 </div>
 
                 <a href="{{ url('sessions') }}" class="mt-2 mb-5 btn btn-secondary">

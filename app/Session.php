@@ -14,7 +14,7 @@ class Session extends Model
         'comments'
     ];
 
-    public function userforms(){
+    public function user_forms(){
         return $this->belongsTo(UserForm::class);
     }
 }

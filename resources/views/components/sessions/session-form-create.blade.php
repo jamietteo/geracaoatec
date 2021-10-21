@@ -25,7 +25,8 @@
 
                             @foreach($userForms as $userForm)
                                 <option value=" {{ $userForm->id}} ">
-                                    {{ $userForm->id }}
+                                    {{ $userForm->id }} -
+                                    {{$userForm->student->name}}
                                 </option>
                             @endforeach
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="text-center pt-5">Olá {{Auth::user()->name}}!</h1>
+    <h1 class="text-center pt-5">Olá, {{Auth::user()->name}}!</h1>
 
 <div class="p-5">
     <div class="row p-5">
