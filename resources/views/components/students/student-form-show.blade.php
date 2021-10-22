@@ -67,10 +67,14 @@
                                 <th scope="row">{{$test->id}}</th>
                                 <td>{{$test->name}}</td>
                                 <td>{{$test->subject}}</td>
-                                @if($test->pivot->evaluation < 9.5)
-                                    <td class="text-danger">{{$test->pivot->evaluation}}</td>
+                                @if(is_null($test->pivot->evaluation))
+                                    <td> Sem nota atribuida</td>
                                 @else
-                                    <td class="text-success">{{$test->pivot->evaluation}}</td>
+                                    @if($test->pivot->evaluation < 9.5)
+                                        <td class="text-danger">{{$test->pivot->evaluation}}</td>
+                                    @else
+                                        <td class="text-success">{{$test->pivot->evaluation}}</td>
+                                    @endif
                                 @endif
                                 <td class="text-center align-middle">
                                     <div class="pr-1">

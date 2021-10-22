@@ -20,7 +20,7 @@ class CreateStudentTestTable extends Migration
                 'student_id',
                  'test_id'
             ]);
-            $table->float('evaluation')->default(0);
+            $table->float('evaluation')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
