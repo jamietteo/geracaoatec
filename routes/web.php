@@ -24,7 +24,7 @@ Route::resource('dashboard', 'HomeController')->middleware('auth');
 Route::prefix('users')->group(function(){
     Route::get('', 'UserController@index')->middleware('auth');
     Route::get('create', 'UserController@create')->middleware('gestor');
-    Route::post('', 'UserController@store')->middleware('auth');
+    Route::post('', 'UserController@store')->middleware('gestor');
     Route::get('{user}', 'UserController@show')->middleware('auth');
     Route::get('{user}/edit', 'UserController@edit')->middleware('auth');
     Route::put('{user}', 'UserController@update')->middleware('auth');
