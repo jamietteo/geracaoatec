@@ -6,6 +6,7 @@ use App\Group;
 use App\Student;
 use App\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -54,16 +55,17 @@ class TestController extends Controller
         $test->subject = $request->subject;
         $test->save();
 
-        $students = Student::all();
+        $students = DB::select("select id from students s JOIN group_student gs
+                                      on s.id = gs.student_id
+                                      where gs.group_id = '$request->group_id'");
 
-        foreach($students as $student)
+        $ids=[];
+        for($i = 0; $i<sizeof($students); $i++)
         {
-            foreach ($student->groups as $group)
-            {
-                if($group->id == $request->group_id)
-                    $test->students()->attach($student->id);
-            }
+            array_push($ids, $students[$i]->id);
         }
+
+        $test->students()->attach($ids);
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
