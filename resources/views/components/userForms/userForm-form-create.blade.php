@@ -39,33 +39,57 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="group" class="font-weight-bold">Alunos</label>
-                    <div>
-                        <select
+                @if(is_countable($students))
+                    <div class="form-group">
+                        <label for="student_id" class="font-weight-bold">Alunos</label>
+                        <div>
+                            <select
+                                id="student_id"
+                                name="student_id"
+                                class="form-select custom-select
+                                @error('student_id') is-invalid @enderror"
+                                aria-describedby="studentHelp">
+
+                                @foreach($students as $student)
+                                    <option value=" {{ $student->id }} ">
+                                        {{$student->atec_number}} - {{ $student->name }} -
+                                        @foreach($student->groups as $group)
+                                            {{$group->name}}
+                                        @endforeach
+                                    </option>
+                                @endforeach
+
+                                @error('student_id')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </select>
+                        </div>
+                    </div>
+                @else
+                    <div class="form-group">
+                        <label for="student_id" class="font-weight-bold">Aluno- {{$students->name}}</label>
+                        <input
+                            type="text"
                             id="student_id"
                             name="student_id"
-                            class="form-select custom-select
-                            @error('student') is-invalid @enderror"
-                            aria-describedby="studentHelp">
+                            autocomplete="student_id"
+                            placeholder="Aluno"
+                            class="form-control
+                        @error('date') is-invalid @enderror"
+                            value="{{ $students->id }}"
+                            required
+                            aria-describedby="dateHelp"
+                            readonly>
 
-                            @foreach($students as $student)
-                                <option value=" {{ $student->id }} ">
-                                    {{$student->atec_number}} - {{ $student->name }} -
-                                    @foreach($student->groups as $group)
-                                        {{$group->name}}
-                                    @endforeach
-                                </option>
-                            @endforeach
-
-                            @error('student')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </select>
+                        @error('student_id')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
                     </div>
-                </div>
+                @endif
 
                     <div class="form-group">
                         <label for="date" class="font-weight-bold">Data</label>

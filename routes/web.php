@@ -93,6 +93,7 @@ Route::prefix('tests')->group(function(){
 
 Route::prefix('userForms')->group(function(){
     Route::get('', 'UserFormController@index')->middleware('auth');
+    Route::get('/create/{id?}', 'UserFormController@create')->name('userForm.create');
     Route::get('/create', 'UserFormController@create')->middleware('auth');
     Route::post('', 'UserFormController@store')->middleware('auth');
     Route::get('{userForm}', 'UserFormController@show')->middleware('auth');

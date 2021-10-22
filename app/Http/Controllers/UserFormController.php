@@ -24,11 +24,15 @@ class UserFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = null)
     {
         $userForms = UserForm::all();
-        $students  = Student::all();
         $users  = User::all();
+
+        if($id != null)
+            $students = Student::find($id);
+        else
+            $students = Student::all();
 
         return view('pages.userForms.create',['userForms' => $userForms, 'students'=> $students, 'users' =>$users]);
     }
