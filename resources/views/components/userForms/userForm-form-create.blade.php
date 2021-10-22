@@ -69,13 +69,22 @@
                     </div>
                 @else
                     <div class="form-group">
-                        <label for="student_id" class="font-weight-bold">Aluno- {{$students->name}}</label>
+                        <label class="font-weight-bold">Nome do aluno</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        value="{{ $students->name }}"
+                        aria-describedby="dateHelp"
+                        readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student_id" class="font-weight-bold">ID</label>
                         <input
                             type="text"
                             id="student_id"
                             name="student_id"
                             autocomplete="student_id"
-                            placeholder="Aluno"
                             class="form-control
                         @error('date') is-invalid @enderror"
                             value="{{ $students->id }}"

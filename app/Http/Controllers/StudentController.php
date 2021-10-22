@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\Student;
 use App\Test;
+use App\UserForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -68,7 +70,9 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view('pages.students.show', ['student' => $student]);
+        $userform = DB::table('user_forms')->where('student_id', $student->id)->get();
+
+        return view('pages.students.show', ['student' => $student, 'userform' => $userform]);
     }
 
     /**
