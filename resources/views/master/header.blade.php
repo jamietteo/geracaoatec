@@ -26,12 +26,14 @@
                             Acompanhamento
                         </a>
                     </li>
+                    @if(Auth::user()->role_id != '3')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('sessions') }}">
                             <span data-feather="activity"></span>
                             Sessões
                         </a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('tests') }}">
                             <span data-feather="pie-chart"></span>
@@ -62,12 +64,14 @@
                             Colaboradores
                         </a>
                     </li>
+                    @if(Auth::user()->role_id == '1')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('roles') }}">
                             <span data-feather="award"></span>
                             Cargos
                         </a>
                     </li>
+                        @endif
                 </ul>
             </div>
         </nav>

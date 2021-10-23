@@ -9,6 +9,7 @@
                 </ol>
             </nav>
 
+            @if(Auth::user()->role_id == '2')
             <a href="{{ url('sessions/create') }}" class="btn btn-primary btn-lg active"
                role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -18,6 +19,7 @@
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
                 Criar Sessão</a>
+            @endif
 
             @if ( session('status') )
                 <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
@@ -26,6 +28,15 @@
                         <span aria-hidden="true">x</span>
                     </button>
                 </div>
+            @else
+                @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-3" role="alert">
+                        {{ session()->get('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                @endif
             @endif
 
             <table class="table table-striped table-bordered m-4 mx-auto">
@@ -36,7 +47,9 @@
                     <th scope="col">Utente</th>
                     <th scope="col">Comentários</th>
                     <th scope="col">Data</th>
+                    @if(Auth::user()->role_id == '2')
                     <th scope="col">Ações</th>
+                        @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +63,7 @@
                         </td>
                         <td>{{$session->comments}}</td>
                         <td>{{$session->begin_time}}</td>
+                        @if(Auth::user()->role_id == '2')
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('sessions/' . $session->id) }}" method="POST"
@@ -84,6 +98,7 @@
                                         </svg>
                                         Apagar
                                     </button>
+                                    @endif
                                 </form>
                             </div>
                         </td>

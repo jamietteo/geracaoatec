@@ -26,8 +26,8 @@ Route::prefix('users')->group(function(){
     Route::get('create', 'UserController@create')->middleware('gestor');
     Route::post('', 'UserController@store')->middleware('gestor');
     Route::get('{user}', 'UserController@show')->middleware('auth');
-    Route::get('{user}/edit', 'UserController@edit')->middleware('auth');
-    Route::put('{user}', 'UserController@update')->middleware('auth');
+    Route::get('{user}/edit', 'UserController@edit')->middleware('gestor');
+    Route::put('{user}', 'UserController@update')->middleware('gestor');
     Route::delete('{user}', 'UserController@destroy')->middleware('gestor');
 });
 
@@ -41,34 +41,24 @@ Route::prefix('groups')->group(function(){
     Route::delete('{group}', 'GroupController@destroy')->middleware('gestor');
 });
 
-Route::prefix('institutions')->group(function(){
-    Route::get('', 'InstitutionController@index')->middleware('auth');
-    Route::get('/create', 'InstitutionController@create')->middleware('auth');
-    Route::post('', 'InstitutionController@store')->middleware('auth');
-    Route::get('{institution}', 'InstitutionController@show')->middleware('auth');
-    Route::get('{institution}/edit', 'InstitutionController@edit')->middleware('auth');
-    Route::put('{institution}', 'InstitutionController@update')->middleware('auth');
-    Route::delete('{institution}', 'InstitutionController@destroy')->middleware('gestor');
-});
-
 Route::prefix('roles')->group(function(){
-    Route::get('', 'RoleController@index')->middleware('auth');
-    Route::get('/create', 'RoleController@create')->middleware('auth');
-    Route::post('', 'RoleController@store')->middleware('auth');
-    Route::get('{role}', 'RoleController@show')->middleware('auth');
-    Route::get('{role}/edit', 'RoleController@edit')->middleware('auth');
-    Route::put('{role}', 'RoleController@update')->middleware('auth');
+    Route::get('', 'RoleController@index')->middleware('gestor');
+    Route::get('/create', 'RoleController@create')->middleware('gestor');
+    Route::post('', 'RoleController@store')->middleware('gestor');
+    Route::get('{role}', 'RoleController@show')->middleware('gestor');
+    Route::get('{role}/edit', 'RoleController@edit')->middleware('gestor');
+    Route::put('{role}', 'RoleController@update')->middleware('gestor');
     Route::delete('{role}', 'RoleController@destroy')->middleware('gestor');
 });
 
 Route::prefix('sessions')->group(function(){
-    Route::get('', 'SessionController@index')->middleware('auth');
-    Route::get('/create', 'SessionController@create')->middleware('auth');
-    Route::post('', 'SessionController@store')->middleware('auth');
-    Route::get('{session}', 'SessionController@show')->middleware('auth');
-    Route::get('{session}/edit', 'SessionController@edit')->middleware('auth');
-    Route::put('{session}', 'SessionController@update')->middleware('auth');
-    Route::delete('{session}', 'SessionController@destroy')->middleware('auth');
+    Route::get('', 'SessionController@index')->middleware('gestortecnica');
+    Route::get('/create', 'SessionController@create')->middleware('gestortecnica');
+    Route::post('', 'SessionController@store')->middleware('gestortecnica');
+    Route::get('{session}', 'SessionController@show')->middleware('gestortecnica');
+    Route::get('{session}/edit', 'SessionController@edit')->middleware('gestortecnica');
+    Route::put('{session}', 'SessionController@update')->middleware('gestortecnica');
+    Route::delete('{session}', 'SessionController@destroy')->middleware('gestortecnica');
 });
 
 Route::prefix('students')->group(function(){
@@ -93,13 +83,13 @@ Route::prefix('tests')->group(function(){
 
 Route::prefix('userForms')->group(function(){
     Route::get('', 'UserFormController@index')->middleware('auth');
-    Route::get('/create/{id?}', 'UserFormController@create')->name('userForm.create');
-    Route::get('/create', 'UserFormController@create')->middleware('auth');
-    Route::post('', 'UserFormController@store')->middleware('auth');
-    Route::get('{userForm}', 'UserFormController@show')->middleware('auth');
-    Route::get('{userForm}/edit', 'UserFormController@edit')->middleware('auth');
-    Route::put('{userForm}', 'UserFormController@update')->middleware('auth');
-    Route::delete('{userForm}', 'UserFormController@destroy')->middleware('auth');
+    Route::get('/create/{id?}', 'UserFormController@create')->name('userForm.create')->middleware('gestortecnica');
+    Route::get('/create', 'UserFormController@create')->middleware('gestortecnica');
+    Route::post('', 'UserFormController@store')->middleware('gestortecnica');
+    Route::get('{userForm}', 'UserFormController@show')->middleware('gestortecnica');
+    Route::get('{userForm}/edit', 'UserFormController@edit')->middleware('gestortecnica');
+    Route::put('{userForm}', 'UserFormController@update')->middleware('gestortecnica');
+    Route::delete('{userForm}', 'UserFormController@destroy')->middleware('gestortecnica');
 });
 
 

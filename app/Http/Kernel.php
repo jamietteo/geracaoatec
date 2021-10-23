@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\GestorTecnica;
 use App\Http\Middleware\Roles;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'gestor' => \App\Http\Middleware\Gestor::class,
         'tecnica' => \App\Http\Middleware\Tecnica::class,
         'professor' => \App\Http\Middleware\Professor::class,
+        'gestortecnica' => \App\Http\Middleware\GestorTecnica::class
 
     ];
 }
