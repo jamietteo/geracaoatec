@@ -7,6 +7,7 @@ use App\Student;
 use App\Test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Array_;
 
 class TestController extends Controller
 {
@@ -104,47 +105,35 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        $students = Student::all();
-        //Post::whereRelation('comments', 'is_approved', false)->get();
-        //ddd($students);
+        $students = DB::select("select id from students s JOIN group_student gs
+                                      on s.id = gs.student_id
+                                      where gs.group_id = '$request->group_id'");
 
-        //$test = Test::find($test->id);
+        $group = DB::table('student_test')->pluck('student_id');
+
         $test->date = $request->date;
         $test->name= $request->name;
         $test->subject = $request->subject;
 
-        foreach ($test->students as $student)
-        {
-            foreach ($student->groups as $group)
-            {
-                $var = $group->id;
-            }
-        };
         $array = [];
-        //ddd($test->students_test()->where('test_id', $test->id)->get());
-        foreach ($students as $student)
+
+        //dd($group[0] == $students[1]->id);
+        for($i = 0; $i<sizeof($students); $i++)
         {
-            foreach ($student->groups as $group)
+            for($k = 0; $k<sizeof($group); $k++)
             {
-                if($group->id == $request->group_id)
+                if($students[$i]->id == $group[$k])
                 {
-
-                    //ddd($test->students()->sync($student->id));
-                    /*$test->students()->syncWithoutDetaching($student->id);*/
-                    if($var == $request->group_id)
-                    {
-                        $test->students()->updateExistingPivot($student, ['evaluation'=>$request->evaluation[$student->id]]);
-                    }
-
-                    array_push($array, $student->id);
+                    $test->students()->updateExistingPivot($students[$i], ['evaluation'=>$request->evaluation[$students[$i]->id]]);
                 }
             }
+
+
+            array_push($array, $students[$i]->id);
         }
 
         $test->students()->sync($array);
         $test->save();
-        //ddd($array);
-
 
         return redirect('tests')->with('status', 'Teste atualizado com sucesso!');
     }
