@@ -72,8 +72,17 @@ class StudentController extends Controller
     {
         $userform = DB::table('user_forms')->where('student_id', $student->id)->get();
         $evaluations = json_encode(DB::table('student_test')->where('student_id', $student->id)->pluck('evaluation'));
+        $group = DB::table('group_student')->where('student_id', $student->id)->pluck('group_id');
+        $students = DB::table('group_student')->where('group_id', $group[0])->pluck('student_id');
 
-        return view('pages.students.show', ['student' => $student, 'userform' => $userform, 'evaluations' => $evaluations]);
+        $medias = [];
+        foreach($students as $tarde){
+            array_push($medias, DB::table('student_test')->where('student_id', $tarde)->pluck('evaluation'));
+        }
+
+        $medias = json_encode($medias);
+
+        return view('pages.students.show', ['student' => $student, 'userform' => $userform, 'evaluations' => $evaluations, 'medias' => $medias]);
     }
 
     /**

@@ -153,7 +153,7 @@
                 <canvas id="myChart"></canvas>
                 <script>
                     window.addEventListener('DOMContentLoaded', (event) => {
-                        window.myChartLib.chartStudents({{$evaluations}})})
+                        window.myChartLib.chartStudents({{$evaluations}}, {{$medias}})})
                 </script>
             </div>
 
