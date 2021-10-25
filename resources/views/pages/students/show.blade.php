@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('components.students.student-form-show', ['student' => $student, 'userform' => $userform])
+    @component('components.students.student-form-show', ['student' => $student, 'userform' => $userform, 'evaluations' => $evaluations ])
     @endcomponent
 
 @endsection

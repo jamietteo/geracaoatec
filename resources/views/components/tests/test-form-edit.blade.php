@@ -98,6 +98,7 @@
                                     id="evaluation"
                                     name="evaluation[{{$student->id}}]"
                                     class="form-control"
+                                    pattern="\b([0-9]|1[0-9]|2[0])\b"
                                     value="{{ $student->pivot->evaluation }}">
                             </td>
                         </tr>

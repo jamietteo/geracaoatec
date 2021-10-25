@@ -71,8 +71,9 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         $userform = DB::table('user_forms')->where('student_id', $student->id)->get();
+        $evaluations = json_encode(DB::table('student_test')->where('student_id', $student->id)->pluck('evaluation'));
 
-        return view('pages.students.show', ['student' => $student, 'userform' => $userform]);
+        return view('pages.students.show', ['student' => $student, 'userform' => $userform, 'evaluations' => $evaluations]);
     }
 
     /**
