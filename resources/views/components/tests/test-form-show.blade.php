@@ -48,8 +48,6 @@
                 </div>
 
                 <h1>Alunos</h1>
-
-                @if(!is_null($test->students[0]->pivot->evaluation))
                     <table class="table table-striped table-bordered m-4 mx-auto">
                         <thead>
                         <tr class="text-center">
@@ -68,10 +66,14 @@
                                 @foreach($student->groups as $group)
                                     <td>{{$group->name}}</td>
                                 @endforeach
-                                @if($student->pivot->evaluation < 9.5)
-                                    <td class="text-danger">{{$student->pivot->evaluation}}</td>
+                                @if(!is_null($student->pivot->evaluation))
+                                    @if($student->pivot->evaluation < 9.5)
+                                        <td class="text-danger">{{$student->pivot->evaluation}}</td>
+                                    @else
+                                        <td class="text-success">{{$student->pivot->evaluation}}</td>
+                                    @endif
                                 @else
-                                    <td class="text-success">{{$student->pivot->evaluation}}</td>
+                                    <td class="text-muted">Sem nota atribuida</td>
                                 @endif
                                 <td class="text-center align-middle">
                                     <div class="pr-1">
@@ -94,11 +96,6 @@
 
                         </tbody>
                     </table>
-                @else
-                    <p class="text-center text-muted h1 p-5">
-                        Sem notas atribuidas
-                    </p>
-                @endif
 
                 <a href="{{ url('tests') }}" class="mt-2 mb-5 btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"

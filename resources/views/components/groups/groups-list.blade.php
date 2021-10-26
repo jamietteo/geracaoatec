@@ -19,14 +19,6 @@
                 </svg>
                 Criar Turma</a>
 
-            <a href="{{ url('tests') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-                     viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-                Lista de Testes</a>
-
             @if ( session('status') )
                 <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
                     {{ session('status') }}
@@ -56,6 +48,9 @@
                             <td class="text-center align-middle">
                                 <div class="pr-1">
                                     <form action="{{ url('groups/' . $group->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar a turma {{$group->name}}?')">
+                                        <a href="{{ url('tests/create/'. $group->id)}}" class="btn btn-primary">
+                                            Marcar teste
+                                        </a>
                                         <a href="{{ url('groups/' . $group->id) }}" type="button"
                                            class="btn btn-success">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

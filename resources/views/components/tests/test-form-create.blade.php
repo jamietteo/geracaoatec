@@ -75,29 +75,62 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    <label for="group_id" class="font-weight-bold">Turma</label>
-                    <div>
-                        <select
+                @if(is_countable($groups))
+                    <div class="form-group">
+                        <label for="group_id" class="font-weight-bold">Turma</label>
+                        <div>
+                            <select
+                                id="group_id"
+                                name="group_id"
+                                class="form-control
+                                @error('group') is-invalid @enderror"
+                                multiple>
+                                @foreach($groups as $group)
+                                    <option value="{{$group->id}}">
+                                        {{ $group->name }}
+                                    </option>
+                                @endforeach
+
+                                @error('group')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </select>
+                        </div>
+                    </div>
+                @else
+                    <div class="form-group">
+                        <label class="font-weight-bold">Turma</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            value="{{ $groups->name }}"
+                            aria-describedby="dateHelp"
+                            readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="group_id" class="font-weight-bold">ID</label>
+                        <input
+                            type="text"
                             id="group_id"
                             name="group_id"
+                            autocomplete="group_id"
                             class="form-control
-                            @error('group') is-invalid @enderror"
-                            multiple>
-                            @foreach($groups as $group)
-                                <option value="{{$group->id}}">
-                                    {{ $group->name }}
-                                </option>
-                            @endforeach
+                        @error('date') is-invalid @enderror"
+                            value="{{ $groups->id }}"
+                            required
+                            aria-describedby="dateHelp"
+                            readonly>
 
-                            @error('group')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </select>
+                        @error('group_id')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
                     </div>
-                </div>
+                @endif
 
                 <a href="{{ url('tests') }}" class="mt-2 mb-5 btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"

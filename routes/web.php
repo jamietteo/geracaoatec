@@ -73,6 +73,7 @@ Route::prefix('students')->group(function(){
 
 Route::prefix('tests')->group(function(){
     Route::get('', 'TestController@index')->middleware('auth');
+    Route::get('/create/{id?}', 'TestController@create')->name('test.create')->middleware('auth');
     Route::get('/create', 'TestController@create')->middleware('auth');
     Route::post('', 'TestController@store')->middleware('auth');
     Route::get('{test}', 'TestController@show')->middleware('auth');

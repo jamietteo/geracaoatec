@@ -28,10 +28,15 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = null)
     {
         $students = Student::all();
-        $groups = Group::all();
+
+
+        if(!is_null($id))
+            $groups = Group::find($id);
+        else
+            $groups = Group::all();
 
         return view('pages.tests.create', ['students' => $students, 'groups' => $groups]);
     }
@@ -127,7 +132,6 @@ class TestController extends Controller
                     $test->students()->updateExistingPivot($students[$i], ['evaluation'=>$request->evaluation[$students[$i]->id]]);
                 }
             }
-
 
             array_push($array, $students[$i]->id);
         }
