@@ -25,6 +25,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="group" class="font-weight-bold">Turma</label>
+                    <input
+                        type="text"
+                        id="group"
+                        name="group"
+                        readonly
+                        class="form-control"
+                        value="{{$userForm->student->groups[0]->name}}">
+                </div>
+
+                <div class="form-group">
                     <label for="student" class="font-weight-bold">Aluno</label>
                         <input
                             type="text"

@@ -44,7 +44,8 @@
                 <tr class="text-center">
                     <th scope="col">Nº Sessão</th>
                     <th scope="col">Nº Ficha de Utente</th>
-                    <th scope="col">Utente</th>
+                    <th scope="col">Turma</th>
+                    <th scope="col">Aluno</th>
                     <th scope="col">Comentários</th>
                     <th scope="col">Data</th>
                     @if(Auth::user()->role_id == '2')
@@ -58,6 +59,9 @@
                     <tr class="text-center">
                         <th scope="row">{{$session->id}}</th>
                         <td>{{$session->user_forms_id}}</td>
+                        <td>
+                            {{ $session->user_forms->student->groups[0]->name  }}
+                        </td>
                         <td>
                             {{ $session->user_forms->student->name  }}
                         </td>

@@ -25,8 +25,9 @@
 
                             @foreach($userForms as $userForm)
                                 <option value=" {{ $userForm->id}} ">
-                                    {{ $userForm->id }} -
-                                    {{$userForm->student->name}}
+                                    {{$userForm->id}} -
+                                    {{$userForm->student->name}} -
+                                    {{$userForm->student->groups[0]->name}}
                                 </option>
                             @endforeach
 

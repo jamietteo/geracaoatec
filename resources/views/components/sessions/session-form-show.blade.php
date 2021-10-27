@@ -25,6 +25,28 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="student" class="font-weight-bold">Aluno</label>
+                    <input
+                        type="text"
+                        id="student"
+                        name="student"
+                        readonly
+                        class="form-control"
+                        value="{{ $session->user_forms->student->name}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="groups" class="font-weight-bold">Turma</label>
+                    <input
+                        type="text"
+                        id="groups"
+                        name="groups"
+                        readonly
+                        class="form-control"
+                        value="{{ $session->user_forms->student->groups[0]->name}}">
+                </div>
+
+                <div class="form-group">
                     <label for="begin_time" class="font-weight-bold">Data</label>
                     <input
                         type="text"

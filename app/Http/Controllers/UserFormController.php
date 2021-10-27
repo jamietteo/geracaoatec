@@ -15,7 +15,7 @@ class UserFormController extends Controller
      */
     public function index()
     {
-        $userForms = UserForm::with('student')->Paginate(10);
+        $userForms = UserForm::with('student', 'student.groups')->Paginate(10);
 
         return view('pages.userForms.index', ['userForms' => $userForms]);
     }
@@ -69,7 +69,7 @@ class UserFormController extends Controller
     public function show(UserForm $userForm)
     {
         $students  = Student::all();
-        $users  = User::all();
+        $users  = User::with('student', 'student.groups');
 
         return view('pages.userForms.show', ['userForm' => $userForm, 'students'=> $students, 'users' =>$users]);
     }

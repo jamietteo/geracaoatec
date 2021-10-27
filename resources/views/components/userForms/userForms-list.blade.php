@@ -43,6 +43,7 @@
                 <tr class="text-center">
                     <th scope="col">#</th>
                     <th scope="col">Colaborador</th>
+                    <th scope="col">Turma</th>
                     <th scope="col">Utente</th>
                     <th scope="col">Data</th>
                     <th scope="col">Periodicidade</th>
@@ -56,6 +57,7 @@
                     <tr class="text-center">
                         <th scope="row">{{$userForm->id}}</th>
                         <th scope="row">{{$userForm->user->name}}</th>
+                        <td>{{$userForm->student->groups[0]->name}}</td>
                         <td>{{$userForm->student->name}}</td>
                         <td>{{$userForm->date}}</td>
                         <td>{{$userForm->periodicity}}</td>

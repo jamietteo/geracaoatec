@@ -15,7 +15,7 @@ class SessionController extends Controller
      */
     public function index()
     {
-        $sessions = Session::with('user_forms', 'user_forms.student')->simplePaginate(10);
+        $sessions = Session::with('user_forms', 'user_forms.student.groups')->simplePaginate(10);
 
         return view('pages.sessions.index', ['sessions' => $sessions]);
     }
@@ -27,7 +27,7 @@ class SessionController extends Controller
      */
     public function create()
     {
-        $sessions = Session::all();
+        $sessions = Session::with('user_forms', 'user_forms.student.groups');
         $userForms = UserForm::all();
 
         return view('pages.sessions.create',['sessions' => $sessions, 'userForms' => $userForms]);
