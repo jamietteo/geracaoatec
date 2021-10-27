@@ -9,7 +9,7 @@
                 </ol>
             </nav>
 
-            @if(Auth::user()->role_id == '2')
+            @if(Auth::user()->role_id != '3')
             <a href="{{ url('sessions/create') }}" class="btn btn-primary btn-lg active"
                role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

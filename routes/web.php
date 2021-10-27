@@ -19,7 +19,6 @@ Route::get('/', 'HomeController@index')->name('/');
 
 //other routes
 Route::view('/home', 'homePage')->middleware('auth');
-Route::resource('dashboard', 'HomeController')->middleware('auth');
 
 Route::prefix('users')->group(function(){
     Route::get('', 'UserController@index')->middleware('auth');
@@ -92,6 +91,7 @@ Route::prefix('userForms')->group(function(){
     Route::put('{userForm}', 'UserFormController@update')->middleware('gestortecnica');
     Route::delete('{userForm}', 'UserFormController@destroy')->middleware('gestortecnica');
 });
+
 
 
 

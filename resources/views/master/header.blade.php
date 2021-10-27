@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('') }}">
+                        <a class="nav-link" href="{{ url('home') }}">
                             <span data-feather="bar-chart-2"></span>
                             Análise SoftSkills
                         </a>
