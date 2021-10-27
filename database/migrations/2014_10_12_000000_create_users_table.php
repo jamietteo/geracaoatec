@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id')->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
