@@ -63,7 +63,7 @@
                         </td>
                         <td>{{$session->comments}}</td>
                         <td>{{$session->begin_time}}</td>
-                        @if(Auth::user()->role_id == '2')
+                        @if(Auth::user()->role_id != '3')
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('sessions/' . $session->id) }}" method="POST"
