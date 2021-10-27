@@ -93,6 +93,10 @@ Route::prefix('userForms')->group(function(){
 });
 
 
+Route::prefix('dashboard')->group(function(){
+    Route::get('', 'DashboardController@index')->middleware('gestor');
+});
+
 
 
 
