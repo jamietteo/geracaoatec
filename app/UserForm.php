@@ -18,9 +18,7 @@ class UserForm extends Model
     public function student(){
         return $this->belongsTo(Student::class);
     }
-    public function groups() {
-        return $this->hasManyThrough(Group::class, Student::class, 'id', 'id', 'student_id');
-    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
