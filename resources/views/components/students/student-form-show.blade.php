@@ -99,6 +99,15 @@
 
                     </tbody>
                 </table>
+
+                <div>
+                    <canvas id="myChart"></canvas>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', (event) => {
+                            window.myChartLib.chartStudents({{$evaluations}}, {{$medias}})})
+                    </script>
+                </div>
+
             @else
                 <p class="text-center text-muted h1 p-5">
                     Sem Testes associados
@@ -149,13 +158,7 @@
                 </a>
             @endif
 
-            <div>
-                <canvas id="myChart"></canvas>
-                <script>
-                    window.addEventListener('DOMContentLoaded', (event) => {
-                        window.myChartLib.chartStudents({{$evaluations}}, {{$medias}})})
-                </script>
-            </div>
+
 
             <a href="{{ url('students') }}" class="mt-2 mb-5 btn btn-secondary float-left">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"

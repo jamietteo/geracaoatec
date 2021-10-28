@@ -52,6 +52,7 @@ Route::prefix('roles')->group(function(){
 
 Route::prefix('sessions')->group(function(){
     Route::get('', 'SessionController@index')->middleware('gestortecnica');
+    Route::get('/create/{id?}', 'SessionController@create')->name('session.create')->middleware('gestortecnica');
     Route::get('/create', 'SessionController@create')->middleware('gestortecnica');
     Route::post('', 'SessionController@store')->middleware('gestortecnica');
     Route::get('{session}', 'SessionController@show')->middleware('gestortecnica');

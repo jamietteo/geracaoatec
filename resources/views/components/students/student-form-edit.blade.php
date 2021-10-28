@@ -40,6 +40,7 @@
                         type="date"
                         id="birthdate"
                         name="birthdate"
+                        max="{{now()->addYear(-14)->format('Y-m-d')}}"
                         class="form-control"
                         value="{{ $student->birthdate }}">
                 </div>

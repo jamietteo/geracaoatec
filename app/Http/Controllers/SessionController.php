@@ -25,10 +25,14 @@ class SessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = null)
     {
         $sessions = Session::with('user_forms', 'user_forms.student.groups');
-        $userForms = UserForm::all();
+
+        if(!is_null($id))
+            $userForms = UserForm::find($id);
+        else
+            $userForms = UserForm::all();
 
         return view('pages.sessions.create',['sessions' => $sessions, 'userForms' => $userForms]);
     }

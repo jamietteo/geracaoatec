@@ -21,6 +21,7 @@ class DashboardController extends Controller
                                      on gs.group_id = g.id
                                      group by institution_id");
 
+        dd($counts);
 
         return view('pages.dashboard.index', ['counts' => $counts]);
     }

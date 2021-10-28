@@ -20,6 +20,7 @@
                         name="date"
                         autocomplete="date"
                         placeholder="Data"
+                        min="{{now()->format("Y-m-d")}}"
                         class="form-control
                         @error('date') is-invalid @enderror"
                         value="{{ old('date') }}"

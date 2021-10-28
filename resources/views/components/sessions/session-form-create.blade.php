@@ -13,32 +13,65 @@
             <form method="POST" action="{{ url('sessions') }}">
                 @csrf
 
-                <div class="form-group">
-                    <label for="group" class="font-weight-bold">Nº Ficha de Utente</label>
-                    <div>
-                        <select
+                @if(is_countable($userForms))
+                    <div class="form-group">
+                        <label for="group" class="font-weight-bold">Nº Ficha de Utente</label>
+                        <div>
+                            <select
+                                id="user_forms_id"
+                                name="user_forms_id"
+                                class="form-select custom-select
+                                @error('user_forms_id') is-invalid @enderror"
+                                aria-describedby="studentHelp">
+
+                                @foreach($userForms as $userForm)
+                                    <option value=" {{ $userForm->id}} ">
+                                        {{$userForm->id}} -
+                                        {{$userForm->student->name}} -
+                                        {{$userForm->student->groups[0]->name}}
+                                    </option>
+                                @endforeach
+
+                                @error('user')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </select>
+                        </div>
+                    </div>
+                @else
+                    <div class="form-group">
+                        <label for="user_forms_id" class="font-weight-bold">Número da ficha de utente</label>
+                        <input
+                            type="text"
                             id="user_forms_id"
                             name="user_forms_id"
-                            class="form-select custom-select
-                            @error('user_forms_id') is-invalid @enderror"
-                            aria-describedby="studentHelp">
+                            autocomplete="user_forms_id"
+                            class="form-control
+                        @error('date') is-invalid @enderror"
+                            value="{{ $userForms->id }}"
+                            required
+                            aria-describedby="dateHelp"
+                            readonly>
 
-                            @foreach($userForms as $userForm)
-                                <option value=" {{ $userForm->id}} ">
-                                    {{$userForm->id}} -
-                                    {{$userForm->student->name}} -
-                                    {{$userForm->student->groups[0]->name}}
-                                </option>
-                            @endforeach
-
-                            @error('user')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </select>
+                        @error('user_forms_id')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Utente</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            value="{{ $userForms->student->name }}"
+                            aria-describedby="dateHelp"
+                            readonly>
+                    </div>
+                @endif
 
                 <div class="form-group">
                     <label for="begin_time" class="font-weight-bold">Data</label>

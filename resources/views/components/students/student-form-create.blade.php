@@ -9,7 +9,6 @@
                     <li class="breadcrumb-item active" aria-current="page">Criar Aluno</li>
                 </ol>
             </nav>
-
             <form method="POST" action="{{ url('students') }}">
                 @csrf
                 <div class="form-group">
@@ -62,6 +61,7 @@
                         name="birthdate"
                         autocomplete="birthdate"
                         placeholder="Data de nascimento"
+                        max="{{now()->addYear(-14)->format('Y-m-d')}}"
                         class="form-control
                         @error('birthdate') is-invalid @enderror"
                         value="{{ old('birthdate') }}"
