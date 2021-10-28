@@ -1,6 +1,6 @@
 window.chartLib = {}
 
-window.chartLib.chartTecnica = () =>{
+window.chartLib.chartTecnica = (counts) =>{
     const labels = [
         'Porto',
         'Palmela',
@@ -11,7 +11,7 @@ window.chartLib.chartTecnica = () =>{
         datasets: [{
             label : 'Alunos Seguidos',
             backgroundColor: '#468faf',
-            data: [14,6]
+            data: counts
         }]
     };
 

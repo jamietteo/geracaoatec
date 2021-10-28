@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\UserForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use function MongoDB\BSON\toJSON;
 
 class DashboardController extends Controller
@@ -14,15 +16,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $counts = DB::table('user_forms')
+            ->Join('students','students.id','=','user_forms.student_id')
+            ->Join('group_student','group_student.student_id','=','students.id')
+            ->Join('groups','groups.id','=','group_student.group_id')
+            ->select(DB::raw('COUNT(user_forms.student_id) as count'))
+            ->groupBy('institution_id')
+            ->pluck('count');
 
-        $counts = \DB::select("select COUNT(us.student_id) from user_forms us JOIN students s
-                                     on us.student_id = s.id JOIN group_student gs
-                                     on s.id = gs.student_id JOIN groups g
-                                     on gs.group_id = g.id
-                                     group by institution_id");
-
-        dd($counts);
-
-        return view('pages.dashboard.index', ['counts' => $counts]);
+        return view('pages.dashboard.index', ['counts' => json_encode($counts)]);
     }
 }
