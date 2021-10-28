@@ -38,6 +38,7 @@
             </form>
 
             @if(sizeof($group->students) > 0)
+                <label class="font-weight-bold">Alunos</label>
                 <table class="table table-striped table-bordered m-4 mx-auto">
                     <thead>
                     <tr class="text-center">

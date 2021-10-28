@@ -5,6 +5,7 @@ use App\Student;
 use App\User;
 use App\UserForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserFormController extends Controller
 {
@@ -70,8 +71,9 @@ class UserFormController extends Controller
     {
         $students  = Student::all();
         $users  = User::with('student', 'student.groups');
+        $sessions = DB::table('sessions')->where('user_forms_id', $userForm->id)->get();
 
-        return view('pages.userForms.show', ['userForm' => $userForm, 'students'=> $students, 'users' =>$users]);
+        return view('pages.userForms.show', ['userForm' => $userForm, 'students'=> $students, 'users' => $users, 'sessions' => $sessions]);
     }
     /**
      * Show the form for editing the specified resource.

@@ -46,7 +46,6 @@
                     <th scope="col">Nº Ficha de Utente</th>
                     <th scope="col">Turma</th>
                     <th scope="col">Aluno</th>
-                    <th scope="col">Comentários</th>
                     <th scope="col">Data</th>
                     @if(Auth::user()->role_id == '2')
                     <th scope="col">Ações</th>
@@ -65,7 +64,6 @@
                         <td>
                             {{ $session->user_forms->student->name  }}
                         </td>
-                        <td>{{$session->comments}}</td>
                         <td>{{$session->begin_time}}</td>
                         @if(Auth::user()->role_id != '3')
                         <td class="text-center align-middle">

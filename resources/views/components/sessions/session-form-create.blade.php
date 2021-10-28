@@ -81,6 +81,7 @@
                         name="begin_time"
                         autocomplete="begin_time"
                         placeholder="Data"
+                        min="{{now()->format("Y-m-d\TH:i")}}"
                         class="form-control
                         @error('begin_time') is-invalid @enderror"
                         value="{{ old('begin_time') }}"
@@ -96,8 +97,7 @@
 
                 <div class="form-group">
                     <label for="name" class="font-weight-bold">Comentários</label>
-                    <input
-                        type="text"
+                    <textarea
                         id="comments"
                         name="comments"
                         autocomplete="comments"
@@ -107,6 +107,7 @@
                         value="{{ old('comments') }}"
                         required
                         aria-describedby="nameHelp">
+                        </textarea>
 
                     @error('comments')
                     <span class="invalid-feedback" role="alert">

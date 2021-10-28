@@ -15,18 +15,6 @@
                 @method('PUT')
 
                 <div class="form-group">
-                    <label for="comments" class="font-weight-bold">Comentários</label>
-                    <input
-                        type="text"
-                        id="comments"
-                        name="comments"
-                        selected
-                        class="form-control"
-                        value="{{$session->comments}}">
-                </div>
-
-
-                <div class="form-group">
                     <label for="begin_time" class="font-weight-bold">Data</label>
                     <input
                         type="datetime-local"
@@ -34,6 +22,17 @@
                         name="begin_time"
                         class="form-control"
                         value="{{ date('Y-m-d\TH:i', strtotime($session->begin_time)) }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="comments" class="font-weight-bold">Comentários</label>
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        selected
+                        class="form-control"
+                        value="{{$session->comments}}">
+                        </textarea>
                 </div>
 
                 <a href="{{ url('sessions') }}" class="mt-2 mb-5 btn btn-secondary">

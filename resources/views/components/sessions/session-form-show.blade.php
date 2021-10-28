@@ -59,13 +59,13 @@
 
                 <div class="form-group">
                     <label for="comments" class="font-weight-bold">Comentários</label>
-                    <input
-                        type="text"
+                    <textarea
                         id="comments"
                         name="comments"
                         readonly
                         class="form-control"
                         value=" {{ $session->comments }}">
+                        </textarea>
                 </div>
 
                 <a href="{{ url('sessions') }}" class="mt-2 mb-5 btn btn-secondary">

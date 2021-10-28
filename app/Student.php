@@ -21,7 +21,7 @@ class Student extends Model
     }
 
     public function userform(){
-        return $this->belongsTo(UserForm::class);
+        return $this->hasOne(UserForm::class);
     }
 
     public function tests(){

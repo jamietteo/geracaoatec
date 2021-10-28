@@ -78,8 +78,8 @@ class StudentController extends Controller
         $students = DB::table('group_student')->where('group_id', $group[0])->pluck('student_id');
 
         $medias = [];
-        foreach($students as $tarde){
-            array_push($medias, DB::table('student_test')->where('student_id', $tarde)->pluck('evaluation'));
+        foreach($students as $student_id){
+            array_push($medias, DB::table('student_test')->where('student_id', $student_id)->pluck('evaluation'));
         }
 
         $medias = json_encode($medias);
