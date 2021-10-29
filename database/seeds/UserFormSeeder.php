@@ -11,6 +11,5 @@ class UserFormSeeder extends Seeder
      */
     public function run()
     {
-        //
     }
 }
