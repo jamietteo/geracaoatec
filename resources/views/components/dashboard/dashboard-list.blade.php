@@ -2,6 +2,6 @@
     <canvas id="chartTecnica"></canvas>
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
-            window.chartLib.chartTecnica({{ $counts  }})})
+            window.myChartLib.chartTecnica({{ $counts  }})})
     </script>
 </div>
