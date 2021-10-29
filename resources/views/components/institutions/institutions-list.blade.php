@@ -16,6 +16,15 @@
                         <span aria-hidden="true">x</span>
                     </button>
                 </div>
+            @else
+                @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-3" role="alert">
+                        {{ session()->get('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                @endif
             @endif
 
             <table class="table table-striped table-bordered m-4 mx-auto">

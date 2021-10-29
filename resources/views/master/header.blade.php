@@ -32,7 +32,7 @@
                             Fichas de Utentes
                         </a>
                     </li>
-                    @if(Auth::user()->role_id != '3')
+                    @if(Auth::user()->role_id != '3' && Auth::user()->role_id != '4')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('sessions') }}">
                             <span data-feather="activity"></span>
@@ -40,12 +40,14 @@
                         </a>
                     </li>
                     @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('tests') }}">
-                            <span data-feather="pie-chart"></span>
-                            Testes
-                        </a>
-                    </li>
+                    @if(Auth::user()->role_id != '4')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('tests') }}">
+                                <span data-feather="pie-chart"></span>
+                                Testes
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('groups') }}">
                             <span data-feather="users"></span>
