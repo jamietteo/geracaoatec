@@ -68,7 +68,9 @@ class Kernel extends HttpKernel
         'gestor' => \App\Http\Middleware\Gestor::class,
         'tecnica' => \App\Http\Middleware\Tecnica::class,
         'professor' => \App\Http\Middleware\Professor::class,
-        'gestortecnica' => \App\Http\Middleware\GestorTecnica::class
+        'gestortecnica' => \App\Http\Middleware\GestorTecnica::class,
+        'guest' => \App\Http\Middleware\Guest::class,
+        'WithoutGuest' => \App\Http\Middleware\WithoutGuest::class,
 
     ];
 }
