@@ -49,6 +49,7 @@
                                 <div class="pr-1">
                                     <form action="{{ url('groups/' . $group->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar a turma {{$group->name}}?')">
                                         <a href="{{ url('tests/create/'. $group->id)}}" class="btn btn-primary">
+                                            <span data-feather="pie-chart"></span>
                                             Marcar teste
                                         </a>
                                         <a href="{{ url('groups/' . $group->id) }}" type="button"

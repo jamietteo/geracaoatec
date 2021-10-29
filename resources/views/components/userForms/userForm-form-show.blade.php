@@ -74,6 +74,7 @@
                         <thead>
                         <tr class="text-center">
                             <th scope="col">#</th>
+                            <th scope="col">Motivo de criação</th>
                             <th scope="col">Data</th>
                             <th scope="col">Ação</th>
                         </tr>
@@ -82,6 +83,7 @@
                         @foreach($sessions as $session)
                             <tr class="text-center">
                                 <th scope="row">{{$session->id}}</th>
+                                <td>{{$session->reason}}</td>
                                 <td>{{$session->begin_time}}</td>
                                 <td class="text-center align-middle">
                                     <div class="pr-1">

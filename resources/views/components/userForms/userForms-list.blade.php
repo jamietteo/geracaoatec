@@ -67,6 +67,7 @@
                                 <form action="{{ url('userForms/' . $userForm->id) }}" method="POST"
                                       onsubmit="return confirm('Deseja eliminar a ficha de utente número {{$userForm->id}}?')">
                                     <a href="{{ url('sessions/create/'. $userForm->id)}}" class="btn btn-primary">
+                                        <span data-feather="activity"></span>
                                         Marcar Sessão
                                     </a>
                                     <a href="{{ url('userForms/' . $userForm->id) }}" type="button"
