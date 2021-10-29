@@ -99,7 +99,7 @@
                                     id="evaluation"
                                     name="evaluation[{{$student->id}}]"
                                     class="form-control"
-                                    pattern="\b([0-9]|1[0-9]|2[0])\b"
+                                    pattern="^(?:1?\d(?:\.\d{1,2})?|20(?:\.0?0?)?)$"
                                     value="{{ $student->pivot->evaluation }}">
                             </td>
                         </tr>
