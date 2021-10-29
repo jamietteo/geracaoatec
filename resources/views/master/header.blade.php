@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('userForms') }}">
                             <span data-feather="file"></span>
-                            Ficha de Utentes
+                            Fichas de Utentes
                         </a>
                     </li>
                     @if(Auth::user()->role_id != '3')

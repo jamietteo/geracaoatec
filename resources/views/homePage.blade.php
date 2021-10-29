@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-center"><span style="height: 50px; width: 50px" data-feather="file"></span></h5>
                         <h4 class="card-text">
-                            Acompanhamento
+                            Fichas de Utentes
                         </h4>
                         <h5 class="card-text"> Visualize as fichas de utente existentes</h5>
                     </div>
@@ -51,9 +51,9 @@
                     <div class="card-body">
                         <h5 class="card-title text-center"><span style="height: 50px; width: 50px" data-feather="bar-chart-2"></span></h5>
                         <h4 class="card-text">
-                            Análise SoftSkills
+                            Dashboard
                         </h4>
-                        <h5 class="card-text"> **Por preencher**</h5>
+                        <h5 class="card-text">Gráficos relativos aos técnicos</h5>
                     </div>
                 </div>
             </a>
@@ -107,7 +107,7 @@
                         <h4 class="card-text">
                             Cargos
                         </h4>
-                        <h5 class="card-text">Crie cargos</h5>
+                        <h5 class="card-text">Crie ou elimine cargos</h5>
                     </div>
                 </div>
             </a>

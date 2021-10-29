@@ -94,6 +94,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        $role->users()->delete();
         $role->delete();
 
         return redirect('roles')->with('status', 'Cargo eliminado com sucesso!');

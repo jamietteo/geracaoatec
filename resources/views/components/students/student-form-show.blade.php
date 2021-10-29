@@ -50,7 +50,7 @@
                 </div>
             </form>
 
-            <label class="font-weight-bold">Testes</label>
+            <h1 class="pt-4">Testes</h1>
             @if(sizeof($student->tests) > 0)
                 <table class="table table-striped table-bordered m-4 mx-auto">
                     <thead>
@@ -123,7 +123,7 @@
             @endif
 
             @if(sizeof($userform) == 1)
-                <label class="font-weight-bold">Ficha do utente</label>
+                <h1 class="pt-4">Ficha do utente</h1>
                 <table class="table table-striped table-bordered m-4 mx-auto">
                     <thead>
                         <tr class="text-center">
