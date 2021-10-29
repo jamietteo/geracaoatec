@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('components.dashboard.dashboard-list', ['counts' => $counts])
+    @component('components.dashboard.dashboard-list', ['counts' => $counts, 'countsUserForms' => $countsUserForms])
     @endcomponent
 
 @endsection

@@ -93,3 +93,42 @@ window.myChartLib.chartTecnica = (counts) =>{
 }
 
 
+window.myChartLib.chartUserForms = (countsUserForms) =>{
+
+    let cenas = JSON.parse(countsUserForms)
+
+    const labels = [];
+    cenas.forEach(item => labels.push(item.name))
+
+    const dataSessoes = []
+    cenas.forEach(item => dataSessoes.push(item.count))
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label : 'Fichas de Utente por Técnica',
+            backgroundColor: '#468faf',
+            data: dataSessoes
+        }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: true,
+            y: {
+                min: 0,
+                max: 20,
+                ticks: {
+                    stepSize: 1
+                }
+            }
+        }
+    };
+
+    const chartUserForms = new Chart(
+        document.getElementById('chartUserForms'),
+        config
+    );
+}
