@@ -8,7 +8,7 @@
                 </ol>
             </nav>
 
-            @if(Auth::user()->role_id != '3')
+            @if(Auth::user()->role_id != '3' && Auth::user()->role_id != '4')
             <a href="{{ url('userForms/create') }}" class="btn btn-primary btn-lg active"
                role="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
