@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['register' => false]);
 
-//Login
-Route::get('/', 'HomeController@index')->name('/');
-
 //other routes
-Route::view('/home', 'homePage')->middleware('auth');
+Route::view('/', 'homePage')->middleware('auth');
 
 Route::middleware('auth')->group(function(){
     Route::prefix('users')->group(function(){
@@ -110,11 +107,3 @@ Route::middleware('auth')->group(function(){
         Route::get('', 'DashboardController@index')->middleware('gestor');
     });
 });
-
-
-
-
-
-
-
-
