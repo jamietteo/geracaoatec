@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\UserForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,12 @@ class DashboardController extends Controller
             ->groupBy('institution_id')
             ->pluck('count');
 
-        return view('pages.dashboard.index', ['counts' => json_encode($counts)]);
+        $countsUserForms = DB::table('user_forms')
+            ->Join('users','users.id','=','user_forms.user_id')
+            ->select('users.name', DB::raw('COUNT(user_forms.user_id) as count'))
+            ->groupBy('users.name')
+            ->get(['count','users.name']);
+
+        return view('pages.dashboard.index', ['counts' => json_encode($counts), 'countsUserForms' => json_encode($countsUserForms)]);
     }
 }
