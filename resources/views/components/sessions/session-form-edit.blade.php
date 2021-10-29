@@ -15,6 +15,16 @@
                 @method('PUT')
 
                 <div class="form-group">
+                    <label for="reason" class="font-weight-bold">Motivo de criação</label>
+                    <input
+                        type="text"
+                        id="reason"
+                        name="reason"
+                        class="form-control"
+                        value="{{$session->reason}}">
+                </div>
+
+                <div class="form-group">
                     <label for="begin_time" class="font-weight-bold">Data</label>
                     <input
                         type="datetime-local"
@@ -29,10 +39,8 @@
                     <textarea
                         id="comments"
                         name="comments"
-                        selected
-                        class="form-control"
-                        value="{{$session->comments}}">
-                        </textarea>
+                        rows="3"
+                        class="form-control">{{$session->comments}}</textarea>
                 </div>
 
                 <a href="{{ url('sessions') }}" class="mt-2 mb-5 btn btn-secondary">

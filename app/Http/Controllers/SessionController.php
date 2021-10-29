@@ -47,12 +47,14 @@ class SessionController extends Controller
     {
         $this->validate($request, [
             'user_forms_id' => 'required',
+            'reason' => 'required',
             'begin_time' => 'required',
             'comments' => 'required'
         ]);
 
         $session = new Session();
         $session->user_forms_id = $request->user_forms_id;
+        $session->reason = $request->reason;
         $session->begin_time = $request->begin_time;
         $session->comments = $request->comments;
         $session->save();
@@ -96,6 +98,7 @@ class SessionController extends Controller
     public function update(Request $request, Session $session)
     {
         $session = Session::find($session->id);
+        $session->reason = $request->reason;
         $session->begin_time = $request->begin_time;
         $session->comments = $request->comments;
         $session->save();

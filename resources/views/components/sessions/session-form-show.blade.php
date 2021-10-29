@@ -25,6 +25,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="reason" class="font-weight-bold">Motivo de criação</label>
+                    <input
+                        type="text"
+                        id="reason"
+                        name="reason"
+                        readonly
+                        class="form-control"
+                        value="{{$session->reason}}">
+                </div>
+
+                <div class="form-group">
                     <label for="student" class="font-weight-bold">Aluno</label>
                     <input
                         type="text"
@@ -63,9 +74,8 @@
                         id="comments"
                         name="comments"
                         readonly
-                        class="form-control"
-                        value=" {{ $session->comments }}">
-                        </textarea>
+                        rows="3"
+                        class="form-control">{{ $session->comments }}</textarea>
                 </div>
 
                 <a href="{{ url('sessions') }}" class="mt-2 mb-5 btn btn-secondary">

@@ -10,7 +10,9 @@ class Session extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'user_forms_id',
         'begin_time',
+        'reason',
         'comments'
     ];
 

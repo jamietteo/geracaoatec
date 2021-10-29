@@ -41,6 +41,7 @@
                         type="date"
                         id="date"
                         name="date"
+                        min="{{now()->format("Y-m-d")}}"
                         class="form-control"
                         value="{{ $userForm->date }}">
                 </div>

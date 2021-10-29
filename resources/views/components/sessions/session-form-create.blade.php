@@ -74,6 +74,27 @@
                 @endif
 
                 <div class="form-group">
+                    <label for="reason" class="font-weight-bold">Motivo de criação</label>
+                    <input
+                        type="text"
+                        id="reason"
+                        name="reason"
+                        autocomplete="reason"
+                        placeholder="Motivo de criação"
+                        class="form-control
+                        @error('reason') is-invalid @enderror"
+                        value="{{ old('reason') }}"
+                        required
+                        aria-describedby="reasonHelp">
+
+                    @error('reason')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="begin_time" class="font-weight-bold">Data</label>
                     <input
                         type="datetime-local"
@@ -102,12 +123,12 @@
                         name="comments"
                         autocomplete="comments"
                         placeholder="Comentários"
+                        rows="3"
                         class="form-control
                         @error('comments') is-invalid @enderror"
                         value="{{ old('comments') }}"
                         required
-                        aria-describedby="nameHelp">
-                        </textarea>
+                        aria-describedby="nameHelp"></textarea>
 
                     @error('comments')
                     <span class="invalid-feedback" role="alert">
