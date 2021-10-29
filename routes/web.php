@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function(){
         Route::get('', 'UserController@index')->middleware('auth');
         Route::get('create', 'UserController@create')->middleware('gestor');
         Route::post('', 'UserController@store')->middleware('gestor');
-        Route::get('{user}', 'UserController@show')->middleware('auth');
+        Route::get('{user}', 'UserController@show')->middleware('WithoutGuest');
         Route::get('{user}/edit', 'UserController@edit')->middleware('gestor');
         Route::put('{user}', 'UserController@update')->middleware('gestor');
         Route::delete('{user}', 'UserController@destroy')->middleware('gestor');

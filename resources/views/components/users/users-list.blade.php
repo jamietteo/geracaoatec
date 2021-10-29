@@ -47,7 +47,9 @@
                     <th scope="col">Nr Atec</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cargo</th>
-                    <th scope="col">Ações</th>
+                    @if(Auth::user()->role_id == '1')
+                        <th scope="col">Ações</th>
+                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -63,6 +65,7 @@
                         <td class="text-center align-middle">
                             <div class="pr-1">
                                 <form action="{{ url('users/' . $user->id) }}" method="POST" onsubmit="return confirm('Deseja eliminar o colaborador {{$user->name}}?')">
+                                    @if(Auth::user()->role_id == '1')
                                     <a href="{{ url('users/' . $user->id) }}" type="button"
                                        class="btn btn-success">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -73,7 +76,6 @@
                                                 d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                                         </svg>
                                         Mostrar</a>
-                                    @if(Auth::user()->role_id == '1')
                                     <a href="{{ url('users/' . $user->id . '/edit') }}" type="button"
                                        class="btn btn-primary">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
