@@ -18,6 +18,7 @@ class TestController extends Controller
      */
     public function index()
     {
+
         $tests = Test::with('students')->simplePaginate(10);
 
         return view('pages.tests.index', ['tests' => $tests]);
@@ -31,7 +32,6 @@ class TestController extends Controller
     public function create($id = null)
     {
         $students = Student::all();
-
 
         if(!is_null($id))
             $groups = Group::find($id);
@@ -72,6 +72,7 @@ class TestController extends Controller
         }
 
         $test->students()->attach($ids);
+
 
         return redirect('tests')->with('status', 'Teste criado com sucesso!');
     }
