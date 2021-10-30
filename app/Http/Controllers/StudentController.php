@@ -59,6 +59,23 @@ class StudentController extends Controller
 
         $student->save();
         $student->groups()->attach($request->group_id);
+        $groupid = $request->group_id;
+
+        $studentTest = Test::with('students' )->whereHas('students.groups', function($query) use($groupid){
+            return $query->where('group_id', '=', $groupid);
+        })->get();
+
+        foreach($studentTest as $test) {
+            $studentIds = $test->students->pluck('id')->toArray();
+            array_push($studentIds, $student->id);
+
+            // dd(json_encode($studentIds));
+
+            $test->students()->sync($studentIds);
+            $test->save();
+        }
+
+        // dd(json_encode($studentTest));
 
 
         return redirect('students')->with('status', 'Aluno criado com sucesso!');

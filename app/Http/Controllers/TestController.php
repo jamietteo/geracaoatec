@@ -84,6 +84,7 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
+
         return view('pages.tests.show', ['test' => $test]);
     }
 
