@@ -92,7 +92,6 @@ window.myChartLib.chartTecnica = (counts) =>{
     );
 }
 
-
 window.myChartLib.chartUserForms = (countsUserForms) =>{
 
     let countForms = JSON.parse(countsUserForms)

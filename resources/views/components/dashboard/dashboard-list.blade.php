@@ -16,7 +16,7 @@
     @endif
 @endif
 
-<div class="container-fluid">
+<div class="container-fluid" id="graficos">
     <h4 class="p-5 text-center">Gráfico de Técnicas por Instituição</h4>
     <div>
         <canvas id="chartTecnica"></canvas>
@@ -36,6 +36,7 @@
         </script>
     </div>
 </div>
+
 
 <a href="{{ url('/') }}" class="mt-2 mb-5 btn btn-secondary">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"

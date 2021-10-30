@@ -16,25 +16,32 @@
                 <div class="form-group">
                     <label for="group" class="font-weight-bold">Colaboradores</label>
                     <div>
-                        <select
+                        <input
+                            type="text"
+                            class="form-control"
+                            aria-describedby="studentHelp"
+                            value="{{Auth::user()->name}}"
+                            disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="hidden"
                             id="user_id"
                             name="user_id"
-                            class="form-select custom-select
-                            @error('user') is-invalid @enderror"
-                            aria-describedby="studentHelp">
+                            autocomplete="user_id"
+                            class="form-control
+                        @error('user_id') is-invalid @enderror"
+                            value="{{ Auth::user()->id }}"
+                            required
+                            aria-describedby="dateHelp"
+                            readonly>
 
-                            @foreach($users as $user)
-                                <option value=" {{ $user->id }} ">
-                                    {{ $user->name }}
-                                </option>
-                            @endforeach
-
-                            @error('user')
-                            <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                            @enderror
-                        </select>
+                        @error('user_id')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
                     </div>
                 </div>
 
