@@ -48,7 +48,7 @@ class SessionController extends Controller
         $this->validate($request, [
             'user_forms_id' => 'required',
             'reason' => 'required',
-            'begin_time' => 'required',
+            'begin_time' => 'required|date_format:Y-m-d\TH:i|after:yesterday',
             'comments' => 'required'
         ]);
 

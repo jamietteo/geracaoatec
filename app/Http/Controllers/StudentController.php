@@ -49,7 +49,7 @@ class StudentController extends Controller
         $this->validate($request, [
             'atec_number' => 'required',
             'name'        => 'required',
-            'birthdate'   => 'required'
+            'birthdate'   => 'required|date_format:Y-m-d|before:14 years ago'
         ]);
 
         $student              = new Student();
@@ -76,7 +76,6 @@ class StudentController extends Controller
         }
 
         // dd(json_encode($studentTest));
-
 
         return redirect('students')->with('status', 'Aluno criado com sucesso!');
     }
