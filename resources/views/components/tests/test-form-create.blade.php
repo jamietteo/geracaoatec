@@ -111,9 +111,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="group_id" class="font-weight-bold">ID</label>
                         <input
-                            type="text"
+                            type="hidden"
                             id="group_id"
                             name="group_id"
                             autocomplete="group_id"

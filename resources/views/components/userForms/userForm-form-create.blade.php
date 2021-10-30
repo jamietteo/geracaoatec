@@ -78,9 +78,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="student_id" class="font-weight-bold">ID</label>
                         <input
-                            type="text"
+                            type="hidden"
                             id="student_id"
                             name="student_id"
                             autocomplete="student_id"

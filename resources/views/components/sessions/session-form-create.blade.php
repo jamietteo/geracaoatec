@@ -42,9 +42,8 @@
                     </div>
                 @else
                     <div class="form-group">
-                        <label for="user_forms_id" class="font-weight-bold">Número da ficha de utente</label>
                         <input
-                            type="text"
+                            type="hidden"
                             id="user_forms_id"
                             name="user_forms_id"
                             autocomplete="user_forms_id"
