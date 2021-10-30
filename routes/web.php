@@ -104,6 +104,6 @@ Route::middleware('auth')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::prefix('dashboard')->group(function(){
-        Route::get('', 'DashboardController@index')->middleware('gestor');
+        Route::get('', 'DashboardController@index')->middleware('auth');
     });
 });

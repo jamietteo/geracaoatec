@@ -2,6 +2,16 @@
 
 @section('content')
 
+
+    @if(session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show mt-3 mb-3" role="alert">
+            {{ session()->get('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+        </div>
+    @endif
+
     <h1 class="text-center pt-5">Olá, {{Auth::user()->name}}!</h1>
 
 <div class="p-5">
