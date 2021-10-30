@@ -95,13 +95,13 @@ window.myChartLib.chartTecnica = (counts) =>{
 
 window.myChartLib.chartUserForms = (countsUserForms) =>{
 
-    let cenas = JSON.parse(countsUserForms)
+    let countForms = JSON.parse(countsUserForms)
 
     const labels = [];
-    cenas.forEach(item => labels.push(item.name))
+    countForms.forEach(item => labels.push(item.name))
 
     const dataSessoes = []
-    cenas.forEach(item => dataSessoes.push(item.count))
+    countForms.forEach(item => dataSessoes.push(item.count))
 
     const data = {
         labels: labels,
