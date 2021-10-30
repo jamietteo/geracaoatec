@@ -46,7 +46,7 @@ class UserFormController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date' => 'required',
+            'date' => 'required|date_format:Y-m-d|after:yesterday',
             'periodicity' => 'required',
             'student_id' => 'required',
             'user_id' => 'required'
