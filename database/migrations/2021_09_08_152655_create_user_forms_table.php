@@ -20,7 +20,6 @@ class CreateUserFormsTable extends Migration
             $table->date('date');
             $table->string('periodicity');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

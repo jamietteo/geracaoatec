@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserForm extends Model
 {
-    use SoftDeletes;
 
     protected $fillable = [
         'date',
