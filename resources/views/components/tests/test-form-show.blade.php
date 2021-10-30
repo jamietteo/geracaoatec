@@ -62,7 +62,6 @@
                         @foreach($test->students as $student)
                             <tr class="text-center">
                                 <td>{{$student->name}}</td>
-                                {{$student}}
                                 @foreach($student->groups as $group)
                                     <td>{{$group->name}}</td>
                                 @endforeach
