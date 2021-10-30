@@ -116,7 +116,7 @@ class TestController extends Controller
                                       on s.id = gs.student_id
                                       where gs.group_id = '$request->group_id'");
 
-        $group = DB::table('student_test')->pluck('student_id');
+        $group = DB::table('student_test')->where('test_id', $test->id)->pluck('student_id');
 
         $test->date = $request->date;
         $test->name= $request->name;
@@ -124,7 +124,7 @@ class TestController extends Controller
 
         $array = [];
 
-        //dd($group[0] == $students[1]->id);
+
         for($i = 0; $i<sizeof($students); $i++)
         {
             for($k = 0; $k<sizeof($group); $k++)

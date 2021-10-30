@@ -21,7 +21,6 @@ class CreateGroupStudentTable extends Migration
                'student_id'
             ]);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
