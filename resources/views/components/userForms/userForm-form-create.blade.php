@@ -21,8 +21,7 @@
                             name="user_id"
                             class="form-select custom-select
                             @error('user') is-invalid @enderror"
-                            aria-describedby="studentHelp"
-                            multiple>
+                            aria-describedby="studentHelp">
 
                             @foreach($users as $user)
                                 <option value=" {{ $user->id }} ">

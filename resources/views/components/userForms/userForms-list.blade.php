@@ -8,6 +8,24 @@
                 </ol>
             </nav>
 
+            @if ( session('status') )
+                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+            @else
+                @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-3" role="alert">
+                        {{ session()->get('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                @endif
+            @endif
+
             @if(Auth::user()->role_id != '3' && Auth::user()->role_id != '4')
             <a href="{{ url('userForms/create') }}" class="btn btn-primary btn-lg active"
                role="button" aria-pressed="true">
@@ -18,24 +36,6 @@
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
                 Criar Ficha de Utente</a>
-            @endif
-
-            @if ( session('status') )
-                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
-                    {{ session('status') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                </div>
-                @else
-                    @if(session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show mt-3 mb-3" role="alert">
-                            {{ session()->get('error') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">x</span>
-                            </button>
-                        </div>
-                    @endif
             @endif
 
             <table class="table table-striped table-bordered m-4 mx-auto">
@@ -108,7 +108,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <a href="{{ url('home/') }}" class="mt-2 mb-5 btn btn-secondary">
+            <a href="{{ url('/') }}" class="mt-2 mb-5 btn btn-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                      class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"

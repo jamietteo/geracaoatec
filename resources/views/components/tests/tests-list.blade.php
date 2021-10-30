@@ -39,15 +39,6 @@
                 Criar Teste</a>
             @endif
 
-            @if ( session('status') )
-                <div class="alert alert-success alert-dismissible fade show mt-3 mb-3" role="alert">
-                    {{ session('status') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                </div>
-            @endif
-
             <table class="table table-striped table-bordered m-4 mx-auto">
                 <thead>
                 <tr class="text-center">
@@ -112,7 +103,7 @@
                 </tbody>
             </table>
 
-            <a href="{{ url('home/') }}" class="mt-2 mb-5 btn btn-secondary">
+            <a href="{{ url('/') }}" class="mt-2 mb-5 btn btn-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                      class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"

@@ -84,8 +84,7 @@
                                 id="group_id"
                                 name="group_id"
                                 class="form-control
-                                @error('group') is-invalid @enderror"
-                                multiple>
+                                @error('group') is-invalid @enderror">
                                 @foreach($groups as $group)
                                     <option value="{{$group->id}}">
                                         {{ $group->name }}
