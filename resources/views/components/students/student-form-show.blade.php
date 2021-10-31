@@ -113,7 +113,19 @@
                     <script>
                         window.addEventListener('DOMContentLoaded', (event) => {
                             window.myChartLib.chartStudents({{$evaluations}}, {{$medias}})})
+
+                        function saveAsPDF() {
+                            html2canvas(document.getElementById("myChart"), {
+                                onrendered: function(canvas) {
+                                    var img = canvas.toDataURL(); //image data of canvas
+                                    var doc = new jsPDF();
+                                    doc.addImage(img, 10, 10, 180, 150);
+                                    doc.save('NotasAlunosMédias.pdf');
+                                }
+                            });
+                        }
                     </script>
+                    <button class="mt-2 mb-5 btn btn-outline-primary" onclick="saveAsPDF();">Download PDF</button>
                 </div>
 
             @else

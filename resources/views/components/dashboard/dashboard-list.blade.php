@@ -17,25 +17,52 @@
 @endif
 
 <div class="container-fluid" id="graficos">
-    <h4 class="p-5 text-center">Gráfico de Técnicas por Instituição</h4>
     <div>
+    <h4 class="p-5 text-center">Gráfico de Técnicas por Instituição</h4>
+
         <canvas id="chartTecnica"></canvas>
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {
                 window.myChartLib.chartTecnica({{ $counts }})})
+
+            function saveAsPDF() {
+                html2canvas(document.getElementById("chartTecnica"), {
+                    onrendered: function(canvas) {
+                        var img = canvas.toDataURL(); //image data of canvas
+                        var doc = new jsPDF();
+                        doc.addImage(img, 10, 10, 180, 150);
+                        doc.save('GráficodeTécnicasporInstituição.pdf');
+                    }
+                });
+            }
         </script>
+        <button class="mt-2 mb-5 btn btn-outline-primary" onclick="saveAsPDF();">Download PDF</button>
     </div>
 
-    <h4 class="p-5 text-center">Gráfico do Número de Fichas de Utente por Técnica</h4>
+
+
     <div>
+        <h4 class="p-5 text-center">Gráfico do Número de Fichas de Utente por Técnica</h4>
         <canvas id="chartUserForms"></canvas>
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {
                 window.myChartLib.chartUserForms(@json($countsUserForms))
             })
+
+            function saveAsPDF() {
+                html2canvas(document.getElementById("chartUserForms"), {
+                    onrendered: function(canvas) {
+                        var img = canvas.toDataURL(); //image data of canvas
+                        var doc = new jsPDF();
+                        doc.addImage(img, 10, 10, 180, 150);
+                        doc.save('GráficodoNúmerodeFichasdeUtenteporTécnica.pdf');
+                    }
+                });
+            }
         </script>
+        <button class="mt-2 mb-5 btn btn-outline-primary" onclick="saveAsPDF();">Download PDF</button>
     </div>
-</div>
+
 
 
 <a href="{{ url('/') }}" class="mt-2 mb-5 btn btn-secondary">
@@ -45,3 +72,4 @@
               d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
     </svg>
     Voltar</a>
+</div>
