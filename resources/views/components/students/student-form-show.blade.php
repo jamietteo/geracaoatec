@@ -120,7 +120,7 @@
                                     var img = canvas.toDataURL(); //image data of canvas
                                     var doc = new jsPDF();
                                     doc.addImage(img, 10, 10, 180, 150);
-                                    doc.save('NotasAlunosMédias.pdf');
+                                    doc.save('{{$student->name}}.pdf');
                                 }
                             });
                         }

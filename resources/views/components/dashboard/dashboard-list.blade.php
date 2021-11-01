@@ -49,7 +49,7 @@
                 window.myChartLib.chartUserForms(@json($countsUserForms))
             })
 
-            function saveAsPDF() {
+            function saveAsPDF2() {
                 html2canvas(document.getElementById("chartUserForms"), {
                     onrendered: function(canvas) {
                         var img = canvas.toDataURL(); //image data of canvas
@@ -60,7 +60,7 @@
                 });
             }
         </script>
-        <button class="mt-2 mb-5 btn btn-outline-primary" onclick="saveAsPDF();">Download PDF</button>
+        <button class="mt-2 mb-5 btn btn-outline-primary" onclick="saveAsPDF2();">Download PDF</button>
     </div>
 
 
