@@ -18,8 +18,7 @@
 
 <div class="container-fluid" id="graficos">
     <div>
-    <h4 class="p-5 text-center">Gráfico de Técnicas por Instituição</h4>
-
+        <h1 class="p-5 text-center">Gráfico de Técnicas por Instituição</h1>
         <canvas id="chartTecnica"></canvas>
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {
@@ -42,7 +41,7 @@
 
 
     <div>
-        <h4 class="p-5 text-center">Gráfico do Número de Fichas de Utente por Técnica</h4>
+        <h1 class="p-5 text-center">Gráfico do Número de Fichas de Utente por Técnica</h1>
         <canvas id="chartUserForms"></canvas>
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {
