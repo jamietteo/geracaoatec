@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 p-4">
-            <h1>Lista de testes</h1>
+            <h1>Lista de Testes</h1>
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
