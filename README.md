@@ -1,7 +1,38 @@
 <div align="center">
     <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" /> <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /> <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" /> <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/> <img src="http://img.shields.io/badge/-PHPStorm-181717?style=for-the-badge&logo=phpstorm&logoColor=white"/> <img src="https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6"/> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white"/>
 </div>
- 
+
+
+## 🚀 Usar o Projeto
+* Ir para a pasta do projeto
+    ```sh
+    cd geracaoatec
+    ```
+* Instalar o composer
+    ```sh
+    composer install
+    ```
+* Instalar as dependencias para a pasta node_modules
+    ```sh
+    npm i && npm run dev
+    ```
+* Copiar ficheiro .env.example para .env
+    ```sh
+    cp .env.example .env
+    ```
+* Gerar nova key para o .env
+    ```sh
+    php artisan key:generate
+    ```
+* Migrar para os dados para a base de dados
+    ```sh
+    php artisan migrate:fresh --seed
+    ```
+* Correr o projeto
+    ```sh
+    php artisan serve
+    ```
+
 ## 🤝 Contact us
 
 <table>
